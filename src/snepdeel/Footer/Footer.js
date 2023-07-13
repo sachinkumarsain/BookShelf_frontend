@@ -6,30 +6,39 @@ function Footer() {
     <>
     <footer>
       <div className='firstList'>
-        <h1>contact</h1>
+        <h1>Company</h1>
       <ul>
-        <li>Facebook</li>
-        <li>Instagram</li>
-        <li>linkedin</li>
-        <li>Whatsapp</li>
+        <li>About Us</li>
+        <li>Career</li>
+        <li>Blog</li>
+        <li>Contact Us</li>
       </ul>
       </div>
       <div className='firstList'>
-      <h1>contact</h1>
+      <h1>Policies</h1>
       <ul>
-        <li>Facebook</li>
-        <li>Instagram</li>
-        <li>linkedin</li>
-        <li>Whatsapp</li>
+        <li>Privacy Policies</li>
+        <li>Terms of Use</li>
+        <li>Secure Shopping</li>
+        <li>Copyright Policy</li>
       </ul>
       </div>
       <div className='firstList'>
-      <h1>contact</h1>
+      <h1>Help</h1>
       <ul>
-        <li>Facebook</li>
-        <li>Instagram</li>
-        <li>linkedin</li>
-        <li>Whatsapp</li>
+        <li>Payment</li>
+        <li>Shipping</li>
+        <li>Return</li>
+        <li>FAQ</li>
+      </ul>
+      </div>
+      <div className='firstList'>
+      <h1>Misc</h1>
+      <ul>
+        <li>Affiliate</li>
+        <li>Sitemap</li>
+        <li>Affiliate</li>
+        <li>Sitemap</li>
       </ul>
       </div>
      

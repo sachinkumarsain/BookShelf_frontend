@@ -13,7 +13,7 @@ function Header() {
     <>
       <header>
         <div className='topHeader'>
-          <h1><img src={logo}></img></h1>
+          <h1>BooksShelf</h1>
           <div className='searchButton'>
             <input autoFocus type='text' placeholder='Enter product name'></input>
             <button>Search</button>

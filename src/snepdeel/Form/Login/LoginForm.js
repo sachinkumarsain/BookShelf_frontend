@@ -17,7 +17,7 @@ function LoginForm() {
               name='password'
               placeholder='Password'></input><br />
             <button type='submit' name='login'><Link to="">Login</Link></button>
-            <h2><Link to="/register">Create account</Link><Link to="">Forword password</Link></h2>
+            <h2><Link to="/register">Create account</Link><Link to="">Forget password</Link></h2>
           </form>
         </div>
       </div>

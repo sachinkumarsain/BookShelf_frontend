@@ -53,11 +53,11 @@
     text-align: center;
   
 }
-label{
+ .loginContent label{
     font-size: 24px;
     margin-top: 20px;
 }
-input{
+.loginContent input{
     font-size: 20px;
     background: none;
     border:1px solid  black;
@@ -68,7 +68,7 @@ input{
     border-radius: 20px;
     padding: 5px 10px;
 }
-button{
+.loginContent button{
     margin: 15px 0px 15px 150px;
     background: none;
     outline:gray ;
@@ -81,7 +81,7 @@ button{
     padding:5px 20px ;
     
 }
-button a{
+.loginContent button a{
     font-size: 21px;
     background: none;
     text-decoration: none;
@@ -89,10 +89,10 @@ button a{
     transition: all 0.8s ease;
   
 }
-button a:hover{
+.loginContent button a:hover{
     color: rgb(231, 231, 231) ;
 }
-.loginContent h2{
+ .loginContent h2{
     display: flex;
     align-items: center;
     justify-content: space-between;
