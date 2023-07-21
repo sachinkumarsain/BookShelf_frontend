@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./Product.css"
+import requests from '../Home/requests'
+import ProductRow from './ProductRow'
 
 function Product() {
   return (
@@ -15,10 +17,21 @@ function Product() {
             <li><Link to="">fantasy</Link></li>
             <li><Link to="">Romance</Link></li>
             <li><Link to="">Flower</Link></li>
+            <li><Link to="">Horror</Link></li>
+            <li><Link to="">Cookbooks</Link></li>
+            <li><Link to="">Essays</Link></li>
+            <li><Link to="">Memoir</Link></li>
+            <li><Link to="">Self-Help</Link></li>
+            <li><Link to="">Short Stories</Link></li>
 
           </ul>
         </div>
         <div className='right'>
+          <ProductRow endpoint={requests.fetchmostpopular} heading=" Most Popular" />
+          <ProductRow endpoint={requests.fetchflower} heading=" Flower Books" />
+          <ProductRow endpoint={requests.fetchfantasy} heading="Fantasy Books" />
+          <ProductRow endpoint={requests.fetchromance} heading="Romance Books" />
+          <ProductRow endpoint={requests.fetchpoetry} heading="Poetry Books" />
 
         </div>
       </div>
