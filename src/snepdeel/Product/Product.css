@@ -18,7 +18,7 @@
     top: 0px;
     text-align: center;
     height: 100vh;
-    background-color: gray;
+    background-color: #ffd1d9;
 
     /* top:100px; */
 }
@@ -64,14 +64,14 @@
     display: inline-block;
     height: 100%;
     transition: all 0.8s ease;
-    color: rgb(61, 61, 61);
+    color: #2F3C7E;
     text-decoration: none;
     background-color: white;
 }
 
 .left ul li a:hover {
-    background-color: rgb(219, 218, 218);
-    color: black;
+    background-color: #efe4e7 ;
+    color: #21307b;
 }
 
 .right {

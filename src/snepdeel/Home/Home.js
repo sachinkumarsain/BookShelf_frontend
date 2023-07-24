@@ -10,7 +10,7 @@ function Home() {
 
   return (
     <>
-      <Banner/>
+      {/* <Banner/> */}
       <Row endpoint={requests.fetchmostpopular} heading=" Most Popular" />
       <Row endpoint={requests.fetchflower} heading=" Flower Books" />
       <Row endpoint={requests.fetchfantasy} heading="Fantasy Books" />

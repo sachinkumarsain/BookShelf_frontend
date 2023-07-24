@@ -70,7 +70,7 @@ function ProductRow(props) {
                             count += colorPart[Math.floor(Math.random() * colorPart.length)]
 
                         }
-                        return <div className='singleBook' style={{ background: `linear-gradient(to top, #f4f4f3,${count})` }} key={index}>
+                        return <div className='singleBook' style={{ background: `linear-gradient(to top, #f4f4f3,${count})`   }} key={index}>
                             <img src={(data?.volumeInfo?.imageLinks?.thumbnail) ? data.volumeInfo.imageLinks.thumbnail : ""} alt='chal' ></img>
                             <h1>{titleEditer(data.volumeInfo.title)}</h1>
                             {/* <h2>{}</h2> */}
