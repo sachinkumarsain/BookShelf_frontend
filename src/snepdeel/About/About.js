@@ -16,9 +16,11 @@ function About() {
           {/* <img src={AboutImage}/> */}
           <Link to="">LEARN MORE ABOUT US</Link>
           </div>
-          <section>
-        
-          </section>
+          {/* <section>
+          <div className='box'>
+
+          </div>
+          </section> */}
         </div>
       </div>
     </>

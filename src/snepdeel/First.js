@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './Home/Home'
+// import Home from './Home/Home'
 import Header from './Header/Header'
 import About from './About/About'
 import Cart from './Cart/Cart'
@@ -8,8 +8,8 @@ import Cart from './Cart/Cart'
 import Product from "./Product/Product"
 import Footer from './Footer/Footer'
 import Contect from './Contacts/Contect'
-import Service from './Service/Service'    
-import Register from "./Form/Register/RegisterForm"
+import Service from './Service/Service'   
+import Registeruser from './Form/RegisterUser/Registeruser'
 import Login from "./Form/Login/LoginForm"
 // import  Login  from './Form/Login/Login'
 function First() {
@@ -23,8 +23,8 @@ function First() {
                 <Route path='/service' element={<Service/>}></Route>
                 <Route path='/contact' element={<Contect/>}></Route>
                 <Route path='/cart' element={<Cart/>}></Route>
-                <Route path='/sign' element={<Login/>}></Route>
-                <Route path='/register' element={<Register/>}></Route>
+                <Route path='/sign' element={<Login/>}></Route> 
+                <Route path='/register' element={<Registeruser/>}></Route> 
                 
             </Routes>
             <Footer/>
