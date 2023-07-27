@@ -13,7 +13,7 @@ import Registeruser from './Form/RegisterUser/Registeruser'
 import Login from "./Form/Login/LoginForm"
 import SearchBooks from './SearchBooks/SearchBooks'
 import { createContext } from 'react'
-import { Provider } from 'react'
+// import { Provider } from 'react'
 // import  Login  from './Form/Login/Login'
 export const searchContext = createContext({})
 
@@ -22,7 +22,7 @@ function First() {
 
     return (
         <>
-            <searchContext.Provider value={{setSearchBooksData}}>
+            <searchContext.Provider value={{setSearchBooksData,searchBooksdata}}>
                 <BrowserRouter>
                     <Header />
                     <Routes>

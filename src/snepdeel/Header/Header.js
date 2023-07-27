@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./Header.css"
-import logo from "../../juCUFrK (1).png"
+// impo    rt logo from "../../juCUFrK (1).png"
+import axios from 'axios'
+import { searchContext } from '../First'
+
 // import axios from 'axios'
 
 function Header() {
+  const{setSearchBooksData} = useContext(searchContext)
 
+  const[inputValue , setInputValue]=useState("")
 
+  function handleSubmit (e){
+    e.preventDefault()
+    axios.post ("http://localhost:8080/searchbooks" ,{inputValue})
+    .then((result)=>{
+      setSearchBooksData(result.data)
+        console.log("aa gya searchbooksdata")
+    })
+
+  }
 
 
   return (
@@ -15,8 +29,13 @@ function Header() {
         <div className='topHeader'>
           <h1>BooksShelf</h1>
           <div className='searchButton'>
-            <input autoFocus type='text' placeholder='Enter product name'></input>
-            <button>Search</button>
+            <form mathod = "post" onSubmit={handleSubmit} >
+            <input autoFocus type='text' placeholder='Enter product name'
+            value={inputValue}
+            onChange={(e)=>{setInputValue(e.target.value)}}
+            ></input>
+            <button type='submit'>Search</button>
+            </form>
           </div>
           <ul>
             <li><Link to="/cart">Cart</Link></li>
