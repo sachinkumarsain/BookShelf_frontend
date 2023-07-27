@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./Header.css"
 // impo    rt logo from "../../juCUFrK (1).png"
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { searchContext } from '../First'
 
@@ -11,17 +12,20 @@ function Header() {
   const{setSearchBooksData} = useContext(searchContext)
 
   const[inputValue , setInputValue]=useState("")
+  const nevigate = useNavigate()
 
   function handleSubmit (e){
     e.preventDefault()
     axios.post ("http://localhost:8080/searchbooks" ,{inputValue})
     .then((result)=>{
       setSearchBooksData(result.data)
-        console.log("aa gya searchbooksdata")
+        console.log("aa gya searchbooksdata");
+        nevigate("/searchbooks")
+        console.log(result.data)
     })
 
   }
-
+   
 
   return (
     <>
