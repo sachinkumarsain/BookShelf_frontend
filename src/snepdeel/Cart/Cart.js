@@ -11,9 +11,9 @@ function Cart() {
 
   useEffect(() => {
 
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=poetry&maxResults=40&orderBy=newest&key=${api_key}`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=flower&maxResults=40&orderBy=newest&key=${api_key}`)
       .then((result) => {
-        setBooks(result.data.items.slice(0, 6));
+        setBooks(result.data.items.slice(38,40));
       });
   }, []);
 
