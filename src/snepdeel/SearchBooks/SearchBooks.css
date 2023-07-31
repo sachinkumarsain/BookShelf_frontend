@@ -12,13 +12,20 @@
     background-color: rgb(255, 255, 255);
     
 }
-.searchBook{
+.bookLink{
     width: 14%;
+    height:350px;
+    margin: 40px;
+    text-decoration: none;
+    color: black;
+}
+.searchBook{
+    width: 100%;
     position: relative;
-    height: 350px;
+    height: 100%;
     /* background-color: gray; */
     border-radius: 20px;
-    margin: 40px;
+    
     text-align: center;
 }
 .searchBook img{

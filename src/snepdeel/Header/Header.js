@@ -9,23 +9,23 @@ import { searchContext } from '../First'
 // import axios from 'axios'
 
 function Header() {
-  const{setSearchBooksData} = useContext(searchContext)
+  const { setSearchBooksData } = useContext(searchContext)
 
-  const[inputValue , setInputValue]=useState("")
+  const [inputValue, setInputValue] = useState("")
   const nevigate = useNavigate()
 
-  function handleSubmit (e){
+  function handleSubmit(e) {
     e.preventDefault()
-    axios.post ("http://localhost:8080/searchbooks" ,{inputValue})
-    .then((result)=>{
-      setSearchBooksData(result.data)
+    axios.post("http://localhost:8080/searchbooks", { inputValue })
+      .then((result) => {
+        setSearchBooksData(result.data)
         console.log("aa gya searchbooksdata");
         nevigate("/searchbooks")
         console.log(result.data)
-    })
+      })
 
   }
-   
+
 
   return (
     <>
@@ -33,12 +33,12 @@ function Header() {
         <div className='topHeader'>
           <h1>BooksShelf</h1>
           <div className='searchButton'>
-            <form mathod = "post" onSubmit={handleSubmit} >
-            <input autoFocus type='text' placeholder='Enter product name'
-            value={inputValue}
-            onChange={(e)=>{setInputValue(e.target.value)}}
-            ></input>
-            <button type='submit'>Search</button>
+            <form mathod="post" onSubmit={handleSubmit} >
+              <input autoFocus type='text' placeholder='Enter product name'
+                value={inputValue}
+                onChange={(e) => { setInputValue(e.target.value) }}
+              ></input>
+              <button type='submit'>Search</button>
             </form>
           </div>
           <ul>

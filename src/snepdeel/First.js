@@ -13,16 +13,18 @@ import Registeruser from './Form/RegisterUser/Registeruser'
 import Login from "./Form/Login/LoginForm"    
 import SearchBooks from './SearchBooks/SearchBooks'
 import { createContext } from 'react'
+import SingleShowBook from './SingleShowBook/SingleShowBook'
 // import { Provider } from 'react'
 // import  Login  from './Form/Login/Login'
 export const searchContext = createContext({})
 
 function First() {
     const [searchBooksdata, setSearchBooksData] = useState([])
+    const [searchBookShow, setSearchBookShow]=useState([])
 
     return (
         <>
-            <searchContext.Provider value={{setSearchBooksData,searchBooksdata}}>
+            <searchContext.Provider value={{setSearchBooksData,searchBooksdata , setSearchBookShow ,searchBookShow}}>
                 <BrowserRouter>
                     <Header />
                     <Routes>
@@ -35,7 +37,7 @@ function First() {
                         <Route path='/sign' element={<Login />}></Route>
                         <Route path='/register' element={<Registeruser />}></Route>
                         <Route path='/searchbooks' element={<SearchBooks />}></Route>
-
+                        <Route path='/singleshowbook' element={<SingleShowBook/>}></Route>
                     </Routes>
                     <Footer />
                 </BrowserRouter>

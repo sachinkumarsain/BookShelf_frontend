@@ -19,7 +19,7 @@ function LoginForm() {
     .then((result)=>{
       if(result.data==="success"){
         console.log(" maja aa gya")
-         navigate("/product")
+         navigate("/home")
        
       } else {
         console.log("dya kuch to gadbad hai")
