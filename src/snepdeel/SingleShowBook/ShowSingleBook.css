@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.singleShowBook{
+    width: 100%;
+    padding: 3rem 0px;
+    display: flex;
+    justify-content:left;
+}
+.singleShowBook .left{
+    width: 35%;
+    
+}
+.singleShowBook .left img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 300px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 8px rgb(212, 211, 211);
+}
+.singleShowBook .right{
+    width: 55%;
+    text-align: left;
+}
+.singleShowBook .right p{
+    text-align: justify;
+    margin-top: 20px;
+}
+.singleShowBook .right .other{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

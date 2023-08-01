@@ -20,7 +20,7 @@ export const searchContext = createContext({})
 
 function First() {
     const [searchBooksdata, setSearchBooksData] = useState([])
-    const [searchBookShow, setSearchBookShow]=useState([])
+    const [searchBookShow, setSearchBookShow]=useState({})
 
     return (
         <>
