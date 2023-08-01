@@ -20,7 +20,8 @@
     background-color: #ffffff;
 }
 .topHeader {
-    background-color:#f7f1f2;
+    /* background-color:#f7f1f2; */
+    background-color: white;
     padding: 10px 20px;
 }
 
@@ -74,7 +75,7 @@
     font-size: 18px;
     border: none;
     color:black;
-    background-color: white;
+    background-color:#f7f1f2;
     outline: none;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;

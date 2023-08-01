@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 // import { useNavigate } from 'react-router-dom'
 import { searchContext } from '../First'
 import "./ShowSingleBook.css"
+import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 
 function SingleShowBook() {
@@ -10,7 +11,8 @@ function SingleShowBook() {
 
     const [showFullDescription, setShowFullDescription] = useState(false);
 
-    const toggleDescription = () => {
+    const toggleDescription = (e) => {
+        e.preventDefault()
         setShowFullDescription(!showFullDescription);
     };
 
@@ -30,7 +32,7 @@ function SingleShowBook() {
             <div className='right'>
                 <h1>{`${"Title : "} ${searchBookShow.title}`}</h1>
                 <h2 className='other1Content'>Author <span>&</span> BookType</h2>
-                <div className='other1'> 
+                <div className='other1'>
                     <h4 className='author'>{`${"Author : "}${searchBookShow.author}`}</h4>
                     <h4 className='bookType'>{`${"BookType : "}${searchBookShow.bookType}`}</h4>
                 </div>
@@ -41,9 +43,9 @@ function SingleShowBook() {
                 </div>
                 <p>{description}</p>
                 {searchBookShow.description.length > 300 && (
-                    <button onClick={toggleDescription}>
+                    <Link onClick={toggleDescription}>
                         {showFullDescription ? 'Read Less' : 'Read More'}
-                    </button>
+                    </Link>
                 )}
 
             </div>
