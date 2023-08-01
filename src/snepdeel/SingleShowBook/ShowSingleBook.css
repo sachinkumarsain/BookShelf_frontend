@@ -1,37 +1,73 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-.singleShowBook{
+
+.singleShowBook {
     width: 100%;
     padding: 3rem 0px;
     display: flex;
-    justify-content:left;
+    justify-content: left;
 }
-.singleShowBook .left{
+
+.singleShowBook .left {
     width: 35%;
-    
-}
-.singleShowBook .left img{
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+
+.singleShowBook .left img {
     width: 50%;
     height: 300px;
     border-radius: 5px;
     box-shadow: 10px 10px 8px rgb(212, 211, 211);
 }
-.singleShowBook .right{
+
+.singleShowBook .right {
     width: 55%;
     text-align: left;
 }
-.singleShowBook .right p{
+
+.singleShowBook .right p {
     text-align: justify;
     margin-top: 20px;
 }
-.singleShowBook .right .other{
+.singleShowBook .right .other1Content ,.singleShowBook .right .other2Content{
+    margin-top: 10px;
+    font-size: 20px;
+}
+.singleShowBook .right .other1Content span{
+    color: blue;
+}
+.singleShowBook .right .other2Content span{
+ color: red;
+}
+
+
+.singleShowBook .right .other2,
+.singleShowBook .right .other1 {
     display: flex;
     align-items: center;
+    margin: 10px 0px;
     justify-content: space-between;
+    margin: 0px 40px;
+}
+
+.singleShowBook .right .other2 .publishedDate {
+    color: red;
+}
+
+.singleShowBook .right .other2 .publisher {
+    color: blue;
+}
+
+.singleShowBook .right .other1 .author {
+    color: rgb(19, 92, 92);
+}
+
+.singleShowBook .right .other1 .bookType {
+    color: brown;
 }
