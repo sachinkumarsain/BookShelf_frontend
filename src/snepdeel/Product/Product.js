@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import "./Product.css"
 import requests from '../Home/requests'
 import ProductRow from './ProductRow'
 
 function Product() {
+const[totalBooks , setTotalBooks] = useState([])
+ useEffect(()=>{
+  
+ },[])
+
   return (
     <>
       <div className='books'>
@@ -27,11 +32,11 @@ function Product() {
           </ul>
         </div>
         <div className='right'>
-          <ProductRow endpoint={requests.fetchmostpopular} heading=" Most Popular" />
+          {/* <ProductRow endpoint={requests.fetchmostpopular} heading=" Most Popular" />
           <ProductRow endpoint={requests.fetchflower} heading=" Flower Books" />
           <ProductRow endpoint={requests.fetchfantasy} heading="Fantasy Books" />
           <ProductRow endpoint={requests.fetchromance} heading="Romance Books" />
-          <ProductRow endpoint={requests.fetchpoetry} heading="Poetry Books" />
+          <ProductRow endpoint={requests.fetchpoetry} heading="Poetry Books" /> */}
 
         </div>
       </div>
