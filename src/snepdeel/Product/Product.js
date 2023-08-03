@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom'
 import "./Product.css"
 import requests from '../Home/requests'
 import ProductRow from './ProductRow'
+import axios from 'axios'
 
 function Product() {
 const[totalBooks , setTotalBooks] = useState([])
  useEffect(()=>{
-  
+  axios.get("http://localhost:8080/searchbooks")
+  .then((result)=>{
+    console.log(result.data)
+    setTotalBooks(result.data)
+  })
  },[])
+ console.log(totalBooks)
 
   return (
     <>
