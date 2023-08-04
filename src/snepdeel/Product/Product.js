@@ -1,20 +1,30 @@
-import React, { useEffect } from 'react'
+import React, {useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import "./Product.css"
-import requests from '../Home/requests'
-import ProductRow from './ProductRow'
+// import requests from '../Home/requests'
+// import ProductRow from './ProductRow'
 import axios from 'axios'
 
 function Product() {
 const[totalBooks , setTotalBooks] = useState([])
+const[mostPopularBook , setMostPopularBook]=useState([])
  useEffect(()=>{
-  axios.get("http://localhost:8080/searchbooks")
+  axios.get("http://localhost:8080/product")
   .then((result)=>{
     console.log(result.data)
     setTotalBooks(result.data)
   })
  },[])
  console.log(totalBooks)
+ function handleMostPopularBook(e){
+  e.preventDefault()
+  totalBooks.filter((mpb)=>{
+    return 
+      if(mpb.bookType==="mostpopular"){
+      setMostPopularBook(mpb)
+    }
+  })
+ }
 
   return (
     <>
@@ -22,7 +32,7 @@ const[totalBooks , setTotalBooks] = useState([])
         <div className='left'>
           <h2>LIBRARY</h2>
           <ul>
-            <li><Link to="">Most popular</Link></li>
+            <li><Link onClick={handleMostPopularBook} to="">Most popular</Link></li>
             <li><Link to="">Fiction</Link></li>
             <li><Link to="">Poetry</Link></li>
             <li><Link to="">fantasy</Link></li>
