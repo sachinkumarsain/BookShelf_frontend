@@ -1,30 +1,39 @@
-import React, {useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import "./Product.css"
 // import requests from '../Home/requests'
 // import ProductRow from './ProductRow'
 import axios from 'axios'
+import { useContext } from 'react'
+import { searchContext } from '../First'
+// import { searchContext } from '../First'
 
 function Product() {
-const[totalBooks , setTotalBooks] = useState([])
-const[mostPopularBook , setMostPopularBook]=useState([])
- useEffect(()=>{
-  axios.get("http://localhost:8080/product")
-  .then((result)=>{
-    console.log(result.data)
-    setTotalBooks(result.data)
-  })
- },[])
- console.log(totalBooks)
- function handleMostPopularBook(e){
-  e.preventDefault()
-  totalBooks.filter((mpb)=>{
-    return 
-      if(mpb.bookType==="mostpopular"){
-      setMostPopularBook(mpb)
-    }
-  })
- }
+
+  const {totalBooks, setTotalBooks,setMostPopularBook ,mostPopularBook} = useContext(searchContext)
+ 
+  useEffect(() => {
+    axios.get("http://localhost:8080/product")
+      .then((result) => {
+        // console.log(result.data)
+        setTotalBooks(result.data)
+      })
+  }, [])
+
+
+  console.log(totalBooks)
+  function handleMostPopularBook(e){
+    e.preventDefault();
+
+    const tnp = totalBooks.filter((mpb) => mpb.bookType === "mostpopular" );
+    console.log(tnp)
+    setMostPopularBook(tnp)
+    // totalBooks.filter((mpb) => (mpb.bookType === "mostpopular")?setMostPopularBook(mpb):"" )
+
+   
+  }
+  console.log(mostPopularBook)
+
 
   return (
     <>
