@@ -7,32 +7,26 @@ import { Link } from 'react-router-dom'
 import Product from './Product';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+// import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
+// import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // import book from "../../../book.jpg"
 // import "./Row.css"
 import "./Product.css"
-
-
+import { useContext } from 'react';
+import { searchContext } from '../First';
 function ProductRow(props) {
+    const{totalBooks}=useContext(searchContext)
     const [books, setBooks] = useState([])
     useEffect(() => {
-
-
+        const tnp = totalBooks.filter((mpb) => mpb.bookType === props.endpoint );
+        console.log(tnp)
+        setBooks(tnp)
         //  let api =  AIzaSyC1D8WIkBINjc6GWc63579oia1BGoNYFcc
 
-
-        axios.get(props.endpoint)
-
-            .then((result) => {
-                // console.log(result.data.items)
-                setBooks(result.data.items)
-
-            }).catch((err) => console.log(err))
-
-    }, [])
+    }, [props.endpoint])
+    console.log(totalBooks)
     function titleEditer(data) {
         return (data.length > 20) ? data.slice(0, 20) + "...." : data
     }

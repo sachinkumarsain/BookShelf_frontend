@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import "./Product.css"
-// import requests from '../Home/requests'
-// import ProductRow from './ProductRow'
+import requests from '../Home/requests'
+import ProductRow from './ProductRow'
 import axios from 'axios'
 import { useContext } from 'react'
 import { searchContext } from '../First'
@@ -57,11 +57,10 @@ function Product() {
           </ul>
         </div>
         <div className='right'>
-          {/* <ProductRow endpoint={requests.fetchmostpopular} heading=" Most Popular" />
-          <ProductRow endpoint={requests.fetchflower} heading=" Flower Books" />
-          <ProductRow endpoint={requests.fetchfantasy} heading="Fantasy Books" />
-          <ProductRow endpoint={requests.fetchromance} heading="Romance Books" />
-          <ProductRow endpoint={requests.fetchpoetry} heading="Poetry Books" /> */}
+          <ProductRow endpoint="mostpopular" heading=" Most Popular" />
+          <ProductRow endpoint="pootery" heading="Poetry Books" />
+          <ProductRow endpoint="fantasy" heading="Fanrasy Books" />
+          <ProductRow endpoint="romance" heading="Romance Books" />
 
         </div>
       </div>
