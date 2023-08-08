@@ -24,12 +24,13 @@ function ProductRow(props) {
         console.log(tnp)
         setBooks(tnp)
         //  let api =  AIzaSyC1D8WIkBINjc6GWc63579oia1BGoNYFcc
-
-    }, [props.endpoint])
+  
+    }, [totalBooks])
+    console.log(books)
     console.log(totalBooks)
-    function titleEditer(data) {
-        return (data.length > 20) ? data.slice(0, 20) + "...." : data
-    }
+    // function titleEditer(data) {
+    //     return (data.length > 20) ? data.slice(0, 20) + "...." : data
+    // }
 
 
     // function color() {
@@ -65,10 +66,11 @@ function ProductRow(props) {
 
                         }
                         return <div className='singleBook' style={{ background: `linear-gradient(to top, #f4f4f3,${count})`   }} key={index}>
-                            <img src={(data?.volumeInfo?.imageLinks?.thumbnail) ? data.volumeInfo.imageLinks.thumbnail : ""} alt='chal' ></img>
-                            <h1>{titleEditer(data.volumeInfo.title)}</h1>
+                            {/* <img src={(data?.volumeInfo?.imageLinks?.thumbnail) ? data.volumeInfo.imageLinks.thumbnail : ""} alt='chal' ></img> */}
+                            <img src={data.image}></img>
+                            <h1>{data.title}</h1>
                             {/* <h2>{}</h2> */}
-                            <h3><span><RemoveRedEyeOutlinedIcon /></span><span><FavoriteBorderIcon /></span></h3>
+                            {/* <h3><span><RemoveRedEyeOutlinedIcon /></span><span><FavoriteBorderIcon /></span></h3> */}
                         </div>
 
                     })

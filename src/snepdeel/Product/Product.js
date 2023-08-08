@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import "./Product.css"
-import requests from '../Home/requests'
+// import requests from '../Home/requests'
 import ProductRow from './ProductRow'
 import axios from 'axios'
 import { useContext } from 'react'
@@ -58,8 +58,8 @@ function Product() {
         </div>
         <div className='right'>
           <ProductRow endpoint="mostpopular" heading=" Most Popular" />
-          <ProductRow endpoint="pootery" heading="Poetry Books" />
-          <ProductRow endpoint="fantasy" heading="Fanrasy Books" />
+          <ProductRow endpoint="poetry" heading="Poetry Books" />
+          <ProductRow endpoint="fantasy" heading="Fantasy Books" />
           <ProductRow endpoint="romance" heading="Romance Books" />
 
         </div>

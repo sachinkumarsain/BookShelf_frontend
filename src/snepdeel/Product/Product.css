@@ -114,11 +114,11 @@
 }
 
 .singleBook img {
-    width: 50%;
+    width: 60%;
     /* position: absolute;
     top: -20px;
     left: 40%; */
-    height: 160px;
+    height: 70%;
 }
 .singleBook h3{
     display: flex;
