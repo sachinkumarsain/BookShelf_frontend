@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 // import ".././Home.css"
 import Product from './Product';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+// import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+// import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 // import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -17,14 +17,14 @@ import "./Product.css"
 import { useContext } from 'react';
 import { searchContext } from '../First';
 function ProductRow(props) {
-    const{totalBooks}=useContext(searchContext)
+    const { totalBooks } = useContext(searchContext)
     const [books, setBooks] = useState([])
     useEffect(() => {
-        const tnp = totalBooks.filter((mpb) => mpb.bookType === props.endpoint );
+        const tnp = totalBooks.filter((mpb) => mpb.bookType === props.endpoint);
         console.log(tnp)
         setBooks(tnp)
         //  let api =  AIzaSyC1D8WIkBINjc6GWc63579oia1BGoNYFcc
-  
+
     }, [totalBooks])
     console.log(books)
     console.log(totalBooks)
@@ -47,6 +47,10 @@ function ProductRow(props) {
 
     // let colors = color()
     // console.log(colors)
+    function handleShowMore(e){
+        e.preventDefault()
+        
+    }
 
 
     return (
@@ -61,17 +65,26 @@ function ProductRow(props) {
                         let count = "#";
 
                         for (let i = 0; i <= 6; i++) {
-                            
+
                             count += colorPart[Math.floor(Math.random() * colorPart.length)]
 
                         }
-                        return <div className='singleBook' style={{ background: `linear-gradient(to top, #f4f4f3,${count})`   }} key={index}>
-                            {/* <img src={(data?.volumeInfo?.imageLinks?.thumbnail) ? data.volumeInfo.imageLinks.thumbnail : ""} alt='chal' ></img> */}
-                            <img src={data.image}></img>
-                            <h1>{data.title}</h1>
-                            {/* <h2>{}</h2> */}
-                            {/* <h3><span><RemoveRedEyeOutlinedIcon /></span><span><FavoriteBorderIcon /></span></h3> */}
-                        </div>
+                        return <Link className='singleBookAnchor' to="">
+                            <div className='singleBook' style={{ background: `linear-gradient(to top, #f4f4f3,${count})` }} key={index}>
+                                {/* <img src={(data?.volumeInfo?.imageLinks?.thumbnail) ? data.volumeInfo.imageLinks.thumbnail : ""} alt='chal' ></img> */}
+                                <img src={data.image} alt='images'></img>
+                                {/* <h1>{data.title}</h1> */}
+                                {/* <h2>{}</h2> */}
+                                <div className='openHover'>
+                                    <h2>{data.title}</h2>
+                                    <p>{data.bookType}</p>
+                                    <Link onClick={handleShowMore} to="">Show More</Link>
+                                </div>
+
+                                {/* <h3><span><RemoveRedEyeOutlinedIcon /></span><span><FavoriteBorderIcon /></span></h3> */}
+                            </div>
+
+                        </Link>
 
                     })
                 }

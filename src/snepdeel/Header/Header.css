@@ -32,7 +32,8 @@
 
 .bottomHeader {
     justify-content: center;
-    background-color:#f7e6e9;
+    background-color: #2F3C7E;
+    
 }
 
 .bottomHeader ul,
@@ -60,10 +61,11 @@
 .bottomHeader ul li a {
     padding: 0px 20px;
     transition: all 0.8s ease;
+    color: white;
 }
 
 .bottomHeader ul li a:hover {
-    background-color: #ffd1d9;
+    background-color:  #515c92;
 }
 
 

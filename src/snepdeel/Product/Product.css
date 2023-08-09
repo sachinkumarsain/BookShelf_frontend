@@ -18,7 +18,7 @@
     top: 0px;
     text-align: center;
     height: 100vh;
-    background-color: #ffd1d9;
+    background-color: #4e7de9;
 
     /* top:100px; */
 }
@@ -86,18 +86,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width:100%;
     /* flex-direction: column; */
 }
-
-.singleBook {
+.book .singleBookAnchor{
     width: 27%;
+    text-decoration: none;
+    color: black;
+}
+
+.singleBook{
+    width: 100%;
     /* background-color: rgb(245, 237, 237); */
    
     /* background: linear-gradient(to top, #f4f4f3, #a6dabf); */
   
 
     text-align: center;
-    height: 300px;
+    height: 350px;
     position: relative;
     margin: 2%;
     padding: 10px 20px;
@@ -106,6 +112,7 @@
 }
 .bookRow h1{
     margin: 20px 20px;
+    width: 100%;
 }
 
 .singleBook h1 {
@@ -113,12 +120,9 @@
     margin: 10px 0px;
 }
 
-.singleBook img {
-    width: 60%;
-    /* position: absolute;
-    top: -20px;
-    left: 40%; */
-    height: 70%;
+.singleBook img{
+    width:60%;
+    height: 70%;  
 }
 .singleBook h3{
     display: flex;
@@ -126,4 +130,13 @@
     justify-content: space-between;
     margin-top: 10px;
 
+}
+.singleBookAnchor .openHover{
+    display: none;
+    transition: all 3s ease;
+}
+
+.singleBook:hover .openHover{
+display: block;
+transform:translateY(-200px);
 }
