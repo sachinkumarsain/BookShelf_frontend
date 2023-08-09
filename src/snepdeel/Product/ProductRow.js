@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 // import ".././Home.css"
 import Product from './Product';
-// import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 // import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 // import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -49,7 +49,7 @@ function ProductRow(props) {
     // console.log(colors)
     function handleShowMore(e){
         e.preventDefault()
-        
+
     }
 
 
@@ -76,10 +76,13 @@ function ProductRow(props) {
                                 {/* <h1>{data.title}</h1> */}
                                 {/* <h2>{}</h2> */}
                                 <div className='openHover'>
-                                    <h2>{data.title}</h2>
-                                    <p>{data.bookType}</p>
+                                    <h2>{data.title.length >20 ?data.title.slice(0,20)+"...":data.title}</h2>
+                                    <p>{data.publisher}</p>
                                     <Link onClick={handleShowMore} to="">Show More</Link>
                                 </div>
+                                <Link className='likeIcon' to="">
+                                <FavoriteBorderIcon/>
+                                </Link>
 
                                 {/* <h3><span><RemoveRedEyeOutlinedIcon /></span><span><FavoriteBorderIcon /></span></h3> */}
                             </div>

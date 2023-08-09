@@ -70,7 +70,7 @@
 }
 
 .left ul li a:hover {
-    background-color: #efe4e7 ;
+    background-color: #efe4e7;
     color: #21307b;
 }
 
@@ -86,32 +86,38 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width:100%;
+    width: 100%;
     /* flex-direction: column; */
 }
-.book .singleBookAnchor{
-    width: 20%;
+
+.book .singleBookAnchor {
+    width: 16%;
+    border-radius: 5px;
+    margin: 20px;
     text-decoration: none;
     color: black;
+    overflow: hidden;
+    box-shadow: 8px 8px 8px rgb(210, 209, 209);
 }
 
-.singleBook{
+.singleBook {
     width: 100%;
     /* background-color: rgb(245, 237, 237); */
-   
+
     /* background: linear-gradient(to top, #f4f4f3, #a6dabf); */
-  
+
 
     text-align: center;
     position: relative;
-    height: 350px;
+    height: 250px;
     position: relative;
-    margin: 2%;
-    padding: 10px 20px;
+
+    /* padding: 10px 20px; */
     border-radius: 20px;
 
 }
-.bookRow h1{
+
+.bookRow h1 {
     margin: 20px 20px;
     width: 100%;
 }
@@ -121,28 +127,68 @@
     margin: 10px 0px;
 }
 
-.singleBook img{
-    width:100%;
-    height: 70%;  
+.singleBook img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
 }
-.singleBook h3{
+
+.singleBook h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 10px;
 
 }
-.singleBookAnchor .openHover{
+
+.singleBookAnchor .openHover {
     position: absolute;
-    bottom: -20%;
+    bottom: -100%;
     left: 0;
     width: 100%;
     height: 50%;
-    transition: all 0.7s ease;
+    transition: all 0.9s ease;
+    padding :10px 5px ;
 }
 
-.singleBook:hover .openHover{
-/* displ/ay: block; */
-bottom: 10%;
-background-color: rgba(0, 0, 0, 0.8);
+.singleBook:hover .openHover {
+    /* displ/ay: block; */
+    bottom: 0%;
+    background-color: rgba(256, 256, 256);
+    color: black;
+    border-top-left-radius: 30px;
+}
+.openHover h2{
+    font-size: 19px;
+    margin-bottom:5px;
+}
+.openHover p{
+    color: red;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.openHover a{
+    background-color: #21307b;
+    color: white;
+    padding: 5px 15px;
+    /* margin-top: 10px; */
+    text-decoration: none;
+    border-radius: 5px;
+}
+.likeIcon{
+    position: absolute;
+    top:7px;
+    right:7px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    color: red;
+}
+.likeIcon .css-i4bv87-MuiSvgIcon-root {
+    font-size: 25px;
+    /* border: 1px solid red; */
 }
