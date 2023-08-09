@@ -191,4 +191,8 @@
 .likeIcon .css-i4bv87-MuiSvgIcon-root {
     font-size: 25px;
     /* border: 1px solid red; */
+    transition: all 0.7s ease;
+}
+.likeIcon:hover .css-i4bv87-MuiSvgIcon-root{
+    transform: scale(1.15);
 }

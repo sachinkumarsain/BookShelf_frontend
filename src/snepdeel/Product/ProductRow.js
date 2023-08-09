@@ -16,9 +16,11 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import "./Product.css"
 import { useContext } from 'react';
 import { searchContext } from '../First';
+import { useNavigate } from 'react-router-dom';
 function ProductRow(props) {
-    const { totalBooks } = useContext(searchContext)
+    const { totalBooks ,setSearchBookShow } = useContext(searchContext)
     const [books, setBooks] = useState([])
+    const nevigate = useNavigate()
     useEffect(() => {
         const tnp = totalBooks.filter((mpb) => mpb.bookType === props.endpoint);
         console.log(tnp)
@@ -47,10 +49,13 @@ function ProductRow(props) {
 
     // let colors = color()
     // console.log(colors)
-    function handleShowMore(e){
+    function handleShowMore(e,data){
         e.preventDefault()
-
+        setSearchBookShow(data)
+        nevigate("/showSigleBook")
+        // console.log(data)
     }
+    
 
 
     return (
@@ -78,7 +83,7 @@ function ProductRow(props) {
                                 <div className='openHover'>
                                     <h2>{data.title.length >20 ?data.title.slice(0,20)+"...":data.title}</h2>
                                     <p>{data.publisher}</p>
-                                    <Link onClick={handleShowMore} to="">Show More</Link>
+                                    <Link onClick={(e)=>handleShowMore(e,data)} to="">Show More</Link>
                                 </div>
                                 <Link className='likeIcon' to="">
                                 <FavoriteBorderIcon/>
