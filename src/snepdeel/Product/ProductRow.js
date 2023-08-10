@@ -24,6 +24,7 @@ function ProductRow(props) {
 
     const [books, setBooks] = useState([])
     const [confirmLike, setConfrimLike] = useState(false)
+    // const[countFavoriteBooks,setCountFavoriteBooks]=useState([])
     const nevigate = useNavigate()
 
 
@@ -47,7 +48,17 @@ function ProductRow(props) {
 
     function handleLike(e, data) {
         e.preventDefault()
-        setFavoriteBooks(data)
+        if(favoriteBooks.length!==0){
+            favoriteBooks.map(element => {
+                if(element.id!==data.id){
+                    return  setFavoriteBooks([...favoriteBooks,data])
+                }
+            });
+        }
+        else{
+            setFavoriteBooks(data)
+        }
+       
         setConfrimLike(true)
 
     }
@@ -56,16 +67,16 @@ function ProductRow(props) {
     //         setConfrimLike(true)
     //     }
     // }
-    function likeConfimtion(id) {
-        let exit = false;
-        favoriteBooks.forEach((data) => {
-            if (data.id === id) {
-                exit = true
-                console.log(data)
-            }
-        })
-        return exit
-    }
+    // function likeConfimtion(id) {
+    //     let exit = false;
+    //     books.forEach((data) => {
+    //         if (data.id === id) {
+    //             exit = true
+    //             console.log(data)
+    //         }
+    //     })
+    //     return exit
+    // }
 
 
 
@@ -88,7 +99,7 @@ function ProductRow(props) {
 
                                 </div>
 
-                                {
+                                {/* {
                                     (likeConfimtion(data.id))
                                         ?
                                         (<Link onClick={(e) => handleLike(e, data)} className='likeIcon' to="">
@@ -98,7 +109,11 @@ function ProductRow(props) {
                                         (<Link onClick={(e) => handleLike(e, data)} className='likeIcon' to="">
                                             <FavoriteBorderIcon />
                                         </Link>)
-                                }
+                                } */}
+                                <Link onClick={(e) => handleLike(e, data)} className='likeIcon' to="">
+                                            <FavoriteBorderIcon />
+                                        </Link>
+
 
 
                                 {/* <h3><span><RemoveRedEyeOutlinedIcon /></span><span><FavoriteBorderIcon /></span></h3> */}

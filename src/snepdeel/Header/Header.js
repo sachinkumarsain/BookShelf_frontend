@@ -1,16 +1,17 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./Header.css"
-// impo    rt logo from "../../juCUFrK (1).png"
+// import logo from "../../juCUFrK (1).png"
 import { useNavigate } from 'react-router-dom'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import axios from 'axios'
 import { searchContext } from '../First'
 
 // import axios from 'axios'
 
 function Header() {
-  const { setSearchBooksData } = useContext(searchContext)
+  const { setSearchBooksData ,favoriteBooks  } = useContext(searchContext)
 
   const [inputValue, setInputValue] = useState("")
   const nevigate = useNavigate()
@@ -26,6 +27,15 @@ function Header() {
       })
 
   }
+
+  function likeHander (){
+    let likeChanges=false;
+    if(favoriteBooks.length!==0){
+      likeChanges=true
+    }
+    return likeChanges
+  }
+  console.log(favoriteBooks)
 
 
   return (
@@ -43,7 +53,14 @@ function Header() {
             </form>
           </div>
           <ul>
-            <li><Link className='first' to="/cart"><FavoriteBorderIcon/> </Link></li>
+            <li>{
+              likeHander()
+              ?
+              <Link className='first' to="/cart"><FavoriteIcon/></Link>
+              :
+               <Link className='first' to="/cart"><FavoriteBorderIcon/></Link>
+              }
+             </li>
             <li><Link to="/sign">Sign</Link></li>
           </ul>
         </div>
