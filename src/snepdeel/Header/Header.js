@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import "./Header.css"
 // impo    rt logo from "../../juCUFrK (1).png"
 import { useNavigate } from 'react-router-dom'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import axios from 'axios'
 import { searchContext } from '../First'
 
@@ -42,7 +43,7 @@ function Header() {
             </form>
           </div>
           <ul>
-            <li><Link to="/cart">Cart</Link></li>
+            <li><Link to="/cart"><FavoriteBorderIcon/> </Link></li>
             <li><Link to="/sign">Sign</Link></li>
           </ul>
         </div>

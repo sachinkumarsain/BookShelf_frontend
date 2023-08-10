@@ -10,7 +10,7 @@ import { searchContext } from '../First'
 
 function Product() {
 
-  const {totalBooks, setTotalBooks,setMostPopularBook ,mostPopularBook} = useContext(searchContext)
+  const { setTotalBooks} = useContext(searchContext)
  
   useEffect(() => {
     axios.get("http://localhost:8080/product")
@@ -21,19 +21,6 @@ function Product() {
   }, [])
 
 
-  console.log(totalBooks)
-  function handleMostPopularBook(e){
-    e.preventDefault();
-
-    const tnp = totalBooks.filter((mpb) => mpb.bookType === "mostpopular" );
-    console.log(tnp)
-    setMostPopularBook(tnp)
-    // totalBooks.filter((mpb) => (mpb.bookType === "mostpopular")?setMostPopularBook(mpb):"" )
-
-   
-  }
-  console.log(mostPopularBook)
-
 
   return (
     <>
@@ -41,7 +28,7 @@ function Product() {
         <div className='left'>
           <h2>LIBRARY</h2>
           <ul>
-            <li><Link onClick={handleMostPopularBook} to="">Most popular</Link></li>
+            <li><Link to="">Most popular</Link></li>
             <li><Link to="">Fiction</Link></li>
             <li><Link to="">Poetry</Link></li>
             <li><Link to="">fantasy</Link></li>

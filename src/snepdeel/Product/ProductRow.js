@@ -8,7 +8,7 @@ import Product from './Product';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 // import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 // import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 // import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 // import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 // import book from "../../../book.jpg"
@@ -18,43 +18,37 @@ import { useContext } from 'react';
 import { searchContext } from '../First';
 import { useNavigate } from 'react-router-dom';
 function ProductRow(props) {
-    const { totalBooks ,setSearchBookShow } = useContext(searchContext)
+    const { totalBooks ,setSearchBookShow ,favoriteBooks,setFavoriteBooks} = useContext(searchContext)
     const [books, setBooks] = useState([])
+    const [confirmLike , setConfrimLike]=useState(false)
     const nevigate = useNavigate()
     useEffect(() => {
         const tnp = totalBooks.filter((mpb) => mpb.bookType === props.endpoint);
-        console.log(tnp)
+        // console.log(tnp)
         setBooks(tnp)
         //  let api =  AIzaSyC1D8WIkBINjc6GWc63579oia1BGoNYFcc
 
     }, [totalBooks])
-    console.log(books)
-    console.log(totalBooks)
-    // function titleEditer(data) {
-    //     return (data.length > 20) ? data.slice(0, 20) + "...." : data
-    // }
-
-
-    // function color() {
-    //     let colorPart = ["a","b", "c","d", "e", "f", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-    //     let count = "#";
-
-    //     for (let i = 0; i <= 6; i++) {
-    //      count += colorPart[Math.floor(Math.random() * colorPart.length)]
-
-    //     }
-    //     return count
-
-    // }
-
-    // let colors = color()
-    // console.log(colors)
+    // console.log(books)
+    // console.log(totalBooks)
     function handleShowMore(e,data){
         e.preventDefault()
         setSearchBookShow(data)
-        nevigate("/showSigleBook")
+        nevigate("/SingleShowBook")
         // console.log(data)
     }
+    function handleLike(e,data){
+        e.preventDefault()
+        setFavoriteBooks(data)
+        setConfrimLike(true)
+        
+    }
+    // function likeConfimtion(data,index){
+    //     if(index===index){
+    //         setConfrimLike(true)
+    //     }
+    // }
+   
     
 
 
@@ -65,29 +59,22 @@ function ProductRow(props) {
 
                 {
                     books.map((data, index) => {
-                        console.log("loop")
-                        let colorPart = ["a", "b", "c", "d", "e", "f", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-                        let count = "#";
-
-                        for (let i = 0; i <= 6; i++) {
-
-                            count += colorPart[Math.floor(Math.random() * colorPart.length)]
-
-                        }
                         return <Link className='singleBookAnchor' to="">
-                            <div className='singleBook' style={{ background: `linear-gradient(to top, #f4f4f3,${count})` }} key={index}>
-                                {/* <img src={(data?.volumeInfo?.imageLinks?.thumbnail) ? data.volumeInfo.imageLinks.thumbnail : ""} alt='chal' ></img> */}
+                            <div className='singleBook'>
                                 <img src={data.image} alt='images'></img>
-                                {/* <h1>{data.title}</h1> */}
-                                {/* <h2>{}</h2> */}
+                               
                                 <div className='openHover'>
                                     <h2>{data.title.length >20 ?data.title.slice(0,20)+"...":data.title}</h2>
                                     <p>{data.publisher}</p>
                                     <Link onClick={(e)=>handleShowMore(e,data)} to="">Show More</Link>
-                                </div>
-                                <Link className='likeIcon' to="">
+                                </div>{
+                                    likeConfimtion(data,index)?<Link onClick={(e)=>handleLike(e,data)} className='likeIcon' to="">
+                                    <FavoriteIcon/>
+                                    </Link>:<Link onClick={(e)=>handleLike(e,data)} className='likeIcon' to="">
                                 <FavoriteBorderIcon/>
                                 </Link>
+                                }
+                                
 
                                 {/* <h3><span><RemoveRedEyeOutlinedIcon /></span><span><FavoriteBorderIcon /></span></h3> */}
                             </div>
