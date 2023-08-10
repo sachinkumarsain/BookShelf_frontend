@@ -49,33 +49,34 @@ function ProductRow(props) {
     function handleLike(e, data) {
         e.preventDefault()
         if(favoriteBooks.length!==0){
-            favoriteBooks.map(element => {
-                if(element.id!==data.id){
-                    return  setFavoriteBooks([...favoriteBooks,data])
-                }
-            });
+          favoriteBooks.map((book)=>{
+            if(book.id===data.id){
+               return setFavoriteBooks([...favoriteBooks , data])
+            }
+          })
         }
         else{
             setFavoriteBooks(data)
         }
        
-        setConfrimLike(true)
+        setConfrimLike(true)   
 
     }
-    // function likeConfimtion(data,index){
+    // function likeConfimation(data,index){
     //     if(index===index){
     //         setConfrimLike(true)
     //     }
     // }
-    // function likeConfimtion(id) {
+    // function likeConfimation(id) {
     //     let exit = false;
     //     books.forEach((data) => {
     //         if (data.id === id) {
     //             exit = true
     //             console.log(data)
     //         }
+    //         return exit
     //     })
-    //     return exit
+        
     // }
 
 
@@ -100,7 +101,7 @@ function ProductRow(props) {
                                 </div>
 
                                 {/* {
-                                    (likeConfimtion(data.id))
+                                    (likeConfimation(data.id))
                                         ?
                                         (<Link onClick={(e) => handleLike(e, data)} className='likeIcon' to="">
                                             <FavoriteIcon />
