@@ -41,13 +41,22 @@ function ProductRow(props) {
         e.preventDefault()
         setFavoriteBooks(data)
         setConfrimLike(true)
-        
+         
     }
     // function likeConfimtion(data,index){
     //     if(index===index){
     //         setConfrimLike(true)
     //     }
     // }
+    function likeConfimtion (id){
+        let exit=false;
+        favoriteBooks.forEach((data)=>{
+          if(data.id===id){
+             exit=true
+          console.log(data)}
+        })
+        return exit
+      }
    
     
 
@@ -68,7 +77,7 @@ function ProductRow(props) {
                                     <p>{data.publisher}</p>
                                     <Link onClick={(e)=>handleShowMore(e,data)} to="">Show More</Link>
                                 </div>{
-                                    likeConfimtion(data,index)?<Link onClick={(e)=>handleLike(e,data)} className='likeIcon' to="">
+                                    likeConfimtion(data.id)?<Link onClick={(e)=>handleLike(e,data)} className='likeIcon' to="">
                                     <FavoriteIcon/>
                                     </Link>:<Link onClick={(e)=>handleLike(e,data)} className='likeIcon' to="">
                                 <FavoriteBorderIcon/>
