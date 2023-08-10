@@ -32,7 +32,7 @@ function Header() {
     <>
       <header>
         <div className='topHeader'>
-          <h1>BooksShelf</h1>
+          <h1>BookShelf</h1>
           <div className='searchButton'>
             <form mathod="post" onSubmit={handleSubmit} >
               <input autoFocus type='text' placeholder='Enter product name'
@@ -43,7 +43,7 @@ function Header() {
             </form>
           </div>
           <ul>
-            <li><Link to="/cart"><FavoriteBorderIcon/> </Link></li>
+            <li><Link className='first' to="/cart"><FavoriteBorderIcon/> </Link></li>
             <li><Link to="/sign">Sign</Link></li>
           </ul>
         </div>

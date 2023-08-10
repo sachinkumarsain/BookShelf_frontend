@@ -17,11 +17,16 @@ import "./Product.css"
 import { useContext } from 'react';
 import { searchContext } from '../First';
 import { useNavigate } from 'react-router-dom';
+
 function ProductRow(props) {
-    const { totalBooks ,setSearchBookShow ,favoriteBooks,setFavoriteBooks} = useContext(searchContext)
+
+    const { totalBooks, setSearchBookShow, favoriteBooks, setFavoriteBooks } = useContext(searchContext)
+
     const [books, setBooks] = useState([])
-    const [confirmLike , setConfrimLike]=useState(false)
+    const [confirmLike, setConfrimLike] = useState(false)
     const nevigate = useNavigate()
+
+
     useEffect(() => {
         const tnp = totalBooks.filter((mpb) => mpb.bookType === props.endpoint);
         // console.log(tnp)
@@ -31,34 +36,38 @@ function ProductRow(props) {
     }, [totalBooks])
     // console.log(books)
     // console.log(totalBooks)
-    function handleShowMore(e,data){
+
+
+    function handleShowMore(e, data) {
         e.preventDefault()
         setSearchBookShow(data)
         nevigate("/SingleShowBook")
         // console.log(data)
     }
-    function handleLike(e,data){
+
+    function handleLike(e, data) {
         e.preventDefault()
         setFavoriteBooks(data)
         setConfrimLike(true)
-         
+
     }
     // function likeConfimtion(data,index){
     //     if(index===index){
     //         setConfrimLike(true)
     //     }
     // }
-    function likeConfimtion (id){
-        let exit=false;
-        favoriteBooks.forEach((data)=>{
-          if(data.id===id){
-             exit=true
-          console.log(data)}
+    function likeConfimtion(id) {
+        let exit = false;
+        favoriteBooks.forEach((data) => {
+            if (data.id === id) {
+                exit = true
+                console.log(data)
+            }
         })
         return exit
-      }
-   
-    
+    }
+
+
 
 
     return (
@@ -71,19 +80,26 @@ function ProductRow(props) {
                         return <Link className='singleBookAnchor' to="">
                             <div className='singleBook'>
                                 <img src={data.image} alt='images'></img>
-                               
+
                                 <div className='openHover'>
-                                    <h2>{data.title.length >20 ?data.title.slice(0,20)+"...":data.title}</h2>
-                                    <p>{data.publisher}</p>
-                                    <Link onClick={(e)=>handleShowMore(e,data)} to="">Show More</Link>
-                                </div>{
-                                    likeConfimtion(data.id)?<Link onClick={(e)=>handleLike(e,data)} className='likeIcon' to="">
-                                    <FavoriteIcon/>
-                                    </Link>:<Link onClick={(e)=>handleLike(e,data)} className='likeIcon' to="">
-                                <FavoriteBorderIcon/>
-                                </Link>
+                                    <h2>{data.title.length > 20 ? data.title.slice(0, 20) + "..." : data.title}</h2>
+                                    <p>{data.author}</p>
+                                    <Link onClick={(e) => handleShowMore(e, data)} to="">Show More</Link>
+
+                                </div>
+
+                                {
+                                    (likeConfimtion(data.id))
+                                        ?
+                                        (<Link onClick={(e) => handleLike(e, data)} className='likeIcon' to="">
+                                            <FavoriteIcon />
+                                        </Link>)
+                                        :
+                                        (<Link onClick={(e) => handleLike(e, data)} className='likeIcon' to="">
+                                            <FavoriteBorderIcon />
+                                        </Link>)
                                 }
-                                
+
 
                                 {/* <h3><span><RemoveRedEyeOutlinedIcon /></span><span><FavoriteBorderIcon /></span></h3> */}
                             </div>
