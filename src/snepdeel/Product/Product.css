@@ -180,7 +180,7 @@
     position: absolute;
     top:7px;
     right:7px;
-    padding: 5px;
+    padding:0px;
     background-color: white;
     border-radius: 50%;
     display: flex;
@@ -189,8 +189,15 @@
    
     color: red;
 }
-.likeIcon .css-i4bv87-MuiSvgIcon-root {
+.singleBook:hover .likeIcon{
+    /* right : 7px; */
+    padding: 5px;
+}
+.singleBook:hover .css-i4bv87-MuiSvgIcon-root{
     font-size: 25px;
+}
+.likeIcon .css-i4bv87-MuiSvgIcon-root {
+    font-size: 0px;
     /* border: 1px solid red; */
     transition: all 0.7s ease;
     color:#AF6B58;

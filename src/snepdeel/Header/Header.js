@@ -7,6 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import axios from 'axios'
 import { searchContext } from '../First'
+import Favorite from '../Favorite/Favorite';
 
 // import axios from 'axios'
 
@@ -35,7 +36,7 @@ function Header() {
     }
     return likeChanges
   }
-  console.log(favoriteBooks)
+  // console.log(favoriteBooks)
 
 
   return (
@@ -56,9 +57,9 @@ function Header() {
             <li>{
               likeHander()
               ?
-              <Link className='first' to="/cart"><FavoriteIcon/></Link>
+              <Link className='first' to="/favorite"><FavoriteIcon/></Link>
               :
-               <Link className='first' to="/cart"><FavoriteBorderIcon/></Link>
+               <Link className='first' to="/favorite"><FavoriteBorderIcon/></Link>
               }
              </li>
             <li><Link to="/sign">Sign</Link></li>
@@ -68,6 +69,10 @@ function Header() {
           <ul>
             <li>
               <Link to="/">Home</Link>
+
+            </li>
+            <li>
+              <Link to="/cart">Cart</Link>
 
             </li>
             <li>

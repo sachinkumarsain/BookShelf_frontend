@@ -30,7 +30,7 @@ function Registeruser() {
     <div className='register'>
       <div className='registerContent'>
         <h1>Register</h1>
-        <form method='post' onSubmit={handleSubmit}>
+        <form  onSubmit={handleSubmit}>
           <label>Name </label>
           <input type='text' value={name} onChange={(e) => setName(e.target.value)} name="name" placeholder='Name' /><br />
           <label>Email </label>

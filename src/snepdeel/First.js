@@ -14,6 +14,7 @@ import Login from "./Form/Login/LoginForm"
 import SearchBooks from './SearchBooks/SearchBooks'
 import { createContext } from 'react'
 import SingleShowBook from './SingleShowBook/SingleShowBook'
+import Favorite from './Favorite/Favorite'
 // import { Provider } from 'react'
 // import  Login  from './Form/Login/Login'
 export const searchContext = createContext({})
@@ -38,6 +39,7 @@ function First() {
                         <Route path='/service' element={<Service />}></Route>
                         <Route path='/contact' element={<Contect />}></Route>
                         <Route path='/cart' element={<Cart />}></Route>
+                        <Route path='favorite' element={<Favorite/>}></Route>
                         <Route path='/sign' element={<Login />}></Route>
                         <Route path='/register' element={<Registeruser />}></Route>
                         <Route path='/searchbooks' element={<SearchBooks />}></Route>

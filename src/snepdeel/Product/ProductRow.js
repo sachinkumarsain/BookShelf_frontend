@@ -42,24 +42,26 @@ function ProductRow(props) {
     function handleShowMore(e, data) {
         e.preventDefault()
         setSearchBookShow(data)
-        nevigate("/SingleShowBook")
+        nevigate("/SingleShowBook")  
         // console.log(data)
     }
 
     function handleLike(e, data) {
         e.preventDefault()
         if(favoriteBooks.length!==0){
-          favoriteBooks.map((book)=>{
-            if(book.id===data.id){
-               return setFavoriteBooks([...favoriteBooks , data])
-            }
-          })
+            
+
+          console.log(favoriteBooks)
+        //   console.log(data.id)
+        // console.log(data._id)
+
         }
         else{
-            setFavoriteBooks(data)
+            setFavoriteBooks(data)  
+            
         }
        
-        setConfrimLike(true)   
+        // setConfrimLike(true)   
 
     }
     // function likeConfimation(data,index){
