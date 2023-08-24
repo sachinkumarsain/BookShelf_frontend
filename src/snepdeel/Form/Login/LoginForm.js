@@ -12,19 +12,21 @@ function LoginForm() {
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
 
+  console.log(localStorage.getItem("session"))
 
   function handleLogin (e){
     e.preventDefault()
     axios.post("http://localhost:8080/login",{username,password})
     .then((result)=>{
-      if(result.data==="success"){
+      if(result.status === 200){ 
         console.log(" maja aa gya")
+        localStorage.setItem("session", result.data)
          navigate("/home")
        
       } else {
         console.log("dya kuch to gadbad hai")
       }
-    })
+    }) 
    
 
   }

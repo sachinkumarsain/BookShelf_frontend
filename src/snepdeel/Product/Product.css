@@ -65,19 +65,21 @@
     height: 100%;
     transition: all 0.8s ease;
     color:  #200c06;
+    transition: all 0.7s ease;
     text-decoration: none;
     background-color:  white;
 }
 
 .left ul li a:hover {
     background-color: #f0eae8;
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 5px  #aa7a69;
     color:  #110501;
 }
 
 .right {
     width: 80%;
     /* flex-direction: column; */
-
 }
 
 .book {

@@ -13,13 +13,14 @@ import Favorite from '../Favorite/Favorite';
 
 function Header() {
   const { setSearchBooksData ,favoriteBooks  } = useContext(searchContext)
-
+ 
   const [inputValue, setInputValue] = useState("")
   const nevigate = useNavigate()
+  const session = localStorage.getItem("session")
 
   function handleSubmit(e) {
     e.preventDefault()
-    axios.post("http://localhost:8080/searchbooks", { inputValue })
+    axios.post("http://localhost:8080/searchbooks", { inputValue,session })
       .then((result) => {
         setSearchBooksData(result.data)
         console.log("aa gya searchbooksdata");
@@ -29,7 +30,7 @@ function Header() {
 
   }
 
-  function likeHander (){
+  function likeHander (){ 
     let likeChanges=false;
     if(favoriteBooks.length!==0){
       likeChanges=true

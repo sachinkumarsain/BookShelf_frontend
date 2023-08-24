@@ -20,13 +20,11 @@ import { useNavigate } from 'react-router-dom';
 
 function ProductRow(props) {
 
-    const { totalBooks, setSearchBookShow, favoriteBooks, setFavoriteBooks } = useContext(searchContext)
+    const { totalBooks, setSearchBookShow} = useContext(searchContext)
 
     const [books, setBooks] = useState([])
-    const [confirmLike, setConfrimLike] = useState(false)
-    // const[countFavoriteBooks,setCountFavoriteBooks]=useState([])
     const nevigate = useNavigate()
-
+    const session = localStorage.getItem("session")
 
     useEffect(() => {
         const tnp = totalBooks.filter((mpb) => mpb.bookType === props.endpoint);
@@ -36,52 +34,28 @@ function ProductRow(props) {
 
     }, [totalBooks])
     // console.log(books)
-    // console.log(totalBooks)
+    console.log(totalBooks)
 
 
     function handleShowMore(e, data) {
         e.preventDefault()
         setSearchBookShow(data)
         nevigate("/SingleShowBook")  
-        // console.log(data)
+        // console.log(data)   
     }
 
     function handleLike(e, data) {
-        e.preventDefault()
-        if(favoriteBooks.length!==0){
-            
+        e.preventDefault() 
 
-          console.log(favoriteBooks)
-        //   console.log(data.id)
-        // console.log(data._id)
-
-        }
-        else{
-            setFavoriteBooks(data)  
-            
-        }
-       
-        // setConfrimLike(true)   
-
+        console.log(session)
+        // let likeBookId = data;
+        // console.log(likeBookId)
+        // axios.patch("http://localhost:8080/product",{likeBookId, session})
+        // .then((result)=>{
+        //     console.log(result.data)
+        // })
     }
-    // function likeConfimation(data,index){
-    //     if(index===index){
-    //         setConfrimLike(true)
-    //     }
-    // }
-    // function likeConfimation(id) {
-    //     let exit = false;
-    //     books.forEach((data) => {
-    //         if (data.id === id) {
-    //             exit = true
-    //             console.log(data)
-    //         }
-    //         return exit
-    //     })
-        
-    // }
-
-
+     
 
 
     return (
@@ -93,7 +67,7 @@ function ProductRow(props) {
                     books.map((data, index) => {
                         return <Link className='singleBookAnchor' to="">
                             <div className='singleBook'>
-                                <img src={data.image} alt='images'></img>
+                                 <img src={data.image} alt='images'></img>
 
                                 <div className='openHover'>
                                     <h2>{data.title.length > 20 ? data.title.slice(0, 20) + "..." : data.title}</h2>
@@ -113,7 +87,7 @@ function ProductRow(props) {
                                             <FavoriteBorderIcon />
                                         </Link>)
                                 } */}
-                                <Link onClick={(e) => handleLike(e, data)} className='likeIcon' to="">
+                                <Link onClick={(e) => handleLike(e, data._id)} className='likeIcon' to="">
                                             <FavoriteBorderIcon />
                                         </Link>
 
@@ -130,6 +104,7 @@ function ProductRow(props) {
         </div>
 
     )
-}
+            }
 
-export default ProductRow
+        
+        export default ProductRow

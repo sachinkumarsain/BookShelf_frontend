@@ -3,15 +3,8 @@
 
 // function Cart() {
 //   const [books, setBooks] = useState([]);
-//   const [bookData, setBooksData] = useState([]);
-//   const [aaya, setAaya] = useState([]);
-
-//   // const api_key = "YOUR_GOOGLE_BOOKS_API_KEY";
-//   const api_key = 'AIzaSyC1D8WIkBINjc6GWc63579oia1BGoNYFcc';
-
-//   useEffect(() => {
-
-//     axios.get(`https://www.googleapis.com/books/v1/volumes?q=flower&maxResults=40&orderBy=newest&key=${api_key}`)
+//   const [bookData, setBooksData] = useState([ ]);
+//   const [aaya, setAaya] = useState([]);6  v1/volumes?q=flower&maxResults=40&orderBy=newest&key=${api_key}`)
 //       .then((result) => {
 //         setBooks(result.data.items.slice(0,10))});
 //         // console.log(result.data.items)

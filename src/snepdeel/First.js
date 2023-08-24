@@ -3,8 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // import Home from './Home/Home'
 import Header from './Header/Header'
 import About from './About/About'
-import Cart from './Cart/Cart'
+// import Cart from './Cart/Cart'
 // import Form from "./Form/Form"
+// import ProductRow from './Product/ProductRow'
 import Product from "./Product/Product"
 import Footer from './Footer/Footer'
 import Contect from './Contacts/Contect'
@@ -36,9 +37,10 @@ function First() {
                         {/* <Route path='/' element={<Home/>}></Route> */}
                         <Route path='/about' element={<About />}></Route>
                         <Route path='/product' element={<Product />}></Route>
+                        {/* <Route path='/product/productrow' element={<ProductRow />}></Route> */}
                         <Route path='/service' element={<Service />}></Route>
                         <Route path='/contact' element={<Contect />}></Route>
-                        <Route path='/cart' element={<Cart />}></Route>
+                        {/* <Route path='/cart' element={<Cart />}></Route> */}
                         <Route path='favorite' element={<Favorite/>}></Route>
                         <Route path='/sign' element={<Login />}></Route>
                         <Route path='/register' element={<Registeruser />}></Route>
