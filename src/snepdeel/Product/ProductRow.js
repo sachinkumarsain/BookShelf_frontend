@@ -25,7 +25,7 @@ function ProductRow(props) {
     const [books, setBooks] = useState([])
     const nevigate = useNavigate()
     const session = localStorage.getItem("session")
-
+    
     useEffect(() => {
         const tnp = totalBooks.filter((mpb) => mpb.bookType === props.endpoint);
         // console.log(tnp)
@@ -34,7 +34,7 @@ function ProductRow(props) {
 
     }, [totalBooks])
     // console.log(books)
-    console.log(totalBooks)
+    // console.log(totalBooks)
 
 
     function handleShowMore(e, data) {
@@ -48,12 +48,12 @@ function ProductRow(props) {
         e.preventDefault() 
 
         console.log(session)
-        // let likeBookId = data;
-        // console.log(likeBookId)
-        // axios.patch("http://localhost:8080/product",{likeBookId, session})
-        // .then((result)=>{
-        //     console.log(result.data)
-        // })
+        let likeBookId = data;
+        console.log(likeBookId)
+        axios.patch("http://localhost:8080/product",{likeBookId, session})
+        .then((result)=>{
+            console.log(result.data)
+        })
     }
      
 

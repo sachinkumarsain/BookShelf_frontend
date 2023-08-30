@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import "./Login.css"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useNavigate } from 'react-router-dom';
@@ -11,12 +11,16 @@ function LoginForm() {
 
   function handleSubmit (e){
     e.preventDefault()
+    // let session = localStorage.getItem("session")
     axios.post("http://localhost:8080/login",{username,password})
     .then((result)=>{
-      if(result.data==="success"){
+      if(result.status===200){
+        localStorage.setItem("session", result.data)
         console.log(" maja aa gya")
-         navigate("/product")
-       
+        console.log(result.data)
+         navigate("/home")
+         
+        
       } else {
         console.log(err)
       }

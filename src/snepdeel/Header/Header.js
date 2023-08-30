@@ -12,15 +12,15 @@ import Favorite from '../Favorite/Favorite';
 // import axios from 'axios'
 
 function Header() {
-  const { setSearchBooksData ,favoriteBooks  } = useContext(searchContext)
- 
+  const { setSearchBooksData, favoriteBooks } = useContext(searchContext)
+
   const [inputValue, setInputValue] = useState("")
   const nevigate = useNavigate()
   const session = localStorage.getItem("session")
 
   function handleSubmit(e) {
     e.preventDefault()
-    axios.post("http://localhost:8080/searchbooks", { inputValue,session })
+    axios.post("http://localhost:8080/searchbooks", { inputValue, session })
       .then((result) => {
         setSearchBooksData(result.data)
         console.log("aa gya searchbooksdata");
@@ -30,12 +30,18 @@ function Header() {
 
   }
 
-  function likeHander (){ 
-    let likeChanges=false;
-    if(favoriteBooks.length!==0){
-      likeChanges=true
+  function likeHander() {
+    let likeChanges = false;
+    if (favoriteBooks.length !== 0) {
+      likeChanges = true
     }
     return likeChanges
+  }
+
+  function handleLogout(e) {
+    e.preventDefault();
+   localStorage.setItem("session","")
+   nevigate("/sign")
   }
   // console.log(favoriteBooks)
 
@@ -57,13 +63,16 @@ function Header() {
           <ul>
             <li>{
               likeHander()
-              ?
-              <Link className='first' to="/favorite"><FavoriteIcon/></Link>
-              :
-               <Link className='first' to="/favorite"><FavoriteBorderIcon/></Link>
-              }
-             </li>
-            <li><Link to="/sign">Sign</Link></li>
+                ?
+                <Link className='first' to="/favorite"><FavoriteIcon /></Link>
+                :
+                <Link className='first' to="/favorite"><FavoriteBorderIcon /></Link>
+            }
+            </li>
+            <li>{
+              (localStorage.getItem("session")) ? <Link onClick={handleLogout} >Logout</Link> : <Link to="/sign" >Login</Link>
+            }
+            </li>
           </ul>
         </div>
         <div className='bottomHeader'>

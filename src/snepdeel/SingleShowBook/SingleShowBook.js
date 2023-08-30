@@ -3,11 +3,14 @@ import React, { useContext, useState } from 'react'
 import { searchContext } from '../First'
 import "./ShowSingleBook.css"
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 // import { Link } from 'react-router-dom'
 
 function SingleShowBook() {
     const { searchBookShow } = useContext(searchContext)
-    console.log(searchBookShow.image)
+    const[inputValue, setInputValue]=useState("")
+
+    // console.log(searchBookShow.image)
 
     const [showFullDescription, setShowFullDescription] = useState(false);
 
@@ -16,18 +19,33 @@ function SingleShowBook() {
         setShowFullDescription(!showFullDescription);
     };
 
-
-    const description = showFullDescription
+        // console.log(searchBookShow.description)
+    const description = (showFullDescription)
         ? searchBookShow.description
         : searchBookShow.description.slice(0, 300) + '...';
 
-    // const trim = () => {
-    //      (searchBookShow.description.length > 300)?searchBookShow.description.slice(0, 300)+<button>Read more</button>:searchBookShow.description
-    // }
+
+    function handleCommentSubmit(e ,bookId){
+        e.preventDefault()
+
+        let commentBook = bookId
+        let session = localStorage.getItem("session")
+        console.log(commentBook,session,inputValue)
+       
+        axios.patch("http://localhost:8080/singleshowbook",{session , commentBook,  inputValue })
+        .then((result)=>{
+            console.log(result.data)
+        })
+
+    }
     return (
         <div className='singleShowBook'>
             <div className='left'>
                 <img src={searchBookShow.image} alt='images'></img>
+                <form onSubmit={(e)=>{handleCommentSubmit(e,searchBookShow._id)}}>
+                    <input type='text' value={inputValue}onChange={(e)=>{setInputValue(e.target.value)}} placeholder='Write your review...'></input>
+                    <button type='submit'>Submit</button>
+                </form>
             </div>
             <div className='right'>
                 <h1>{`${"Title : "} ${searchBookShow.title}`}</h1>
