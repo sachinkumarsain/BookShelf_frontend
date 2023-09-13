@@ -12,61 +12,66 @@
 
 .topHeader,
 .topHeader ul,
-.bottomHeader,
 .bottomHeader ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #ffffff;
 }
+
 .topHeader {
     /* background-color:#f7f1f2; */
     background-color: white;
     padding: 10px 20px;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-.topHeader h1 img {
-    height: 50px;
-    width: 80px;
-}
 
 .bottomHeader {
     justify-content: center;
-    background-color:#CBBCB1;
-    
+    background-color: #CBBCB1;
+
 }
 
 .bottomHeader ul,
 .topHeader ul {
     justify-content: center;
-    
+
     list-style: none;
     /* padding: 5px 0px; */
     background: none;
+}
+
+.bottomHeader ul {
+    width: 100%;
 }
 
 .bottomHeader ul li a,
 .topHeader ul li a {
     text-decoration: none;
     font-size: 22px;
-    color:  #AF6B58;
+    color: #AF6B58;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.8s ease;
     padding: 10px 30px;
 }
-.topHeader ul li a .css-i4bv87-MuiSvgIcon-root{
+
+.topHeader ul li a .css-i4bv87-MuiSvgIcon-root {
     font-size: 30px;
-    
+
 }
-.topHeader ul li .first{
+
+.topHeader ul li .first {
     padding: 6.5px 30px;
 }
+
 .topHeader ul li a:hover {
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    background-color:#e7ded7 ;
+    background-color: #e7ded7;
 }
 
 .bottomHeader ul li a {
@@ -89,7 +94,7 @@
     font-size: 18px;
     border: none;
     color: #824e3f;
-    background-color:#ede7e2;
+    background-color: #ede7e2;
     outline: none;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -105,5 +110,62 @@
     border: none;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+
+}
+
+@media all and (max-width:750px) {
+    .topHeader h1 {
+        width: 100%;
+        display: flex;
+        font-size: 45px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .topHeader form {
+        width: 100%;
+    }
+
+    .topHeader ul {
+        width: 30%;
+    }
+
+}
+
+@media all and (max-width:600px) {
+
+    .topHeader ul,
+    .topHeader form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+    }
+    .topHeader .searchButton input {
+        width: 180px;
+        font-size: 16px;
+        height: 24px;
+    }
+    .topHeader .searchButton button{
+        width: 80px;
+        height: 24px;
+        padding-right:2px;
+        font-size: 16px;
+    }
+
+    .topHeader form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bottomHeader ul {
+        flex-direction: column;
+        align-items: 40%;
+    }
+
+
 
 }

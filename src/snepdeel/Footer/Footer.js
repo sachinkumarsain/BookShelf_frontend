@@ -15,15 +15,6 @@ function Footer() {
       </ul>
       </div>
       <div className='firstList'>
-      <h1>Policies</h1>
-      <ul>
-        <li>Privacy Policies</li>
-        <li>Terms of Use</li>
-        <li>Secure Shopping</li>
-        <li>Copyright Policy</li>
-      </ul>
-      </div>
-      <div className='firstList'>
       <h1>Help</h1>
       <ul>
         <li>Payment</li>

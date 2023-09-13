@@ -7,7 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import axios from 'axios'
 import { searchContext } from '../First'
-import Favorite from '../Favorite/Favorite';
+// import Favorite from '../Favorite/Favorite';
 
 // import axios from 'axios'
 
@@ -78,7 +78,7 @@ function Header() {
         <div className='bottomHeader'>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Dashboard</Link>
 
             </li>
             <li>

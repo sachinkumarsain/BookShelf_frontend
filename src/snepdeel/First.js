@@ -16,6 +16,7 @@ import SearchBooks from './SearchBooks/SearchBooks'
 import { createContext } from 'react'
 import SingleShowBook from './SingleShowBook/SingleShowBook'
 import Favorite from './Favorite/Favorite'
+import Dashborad  from "./Dashboard/Dashboard"
 // import { Provider } from 'react'
 // import  Login  from './Form/Login/Login'
 export const searchContext = createContext({})
@@ -32,9 +33,9 @@ function First() {
         <>
             <searchContext.Provider value={{mostPopularBook,setMostPopularBook ,setSearchBooksData, searchBooksdata, setSearchBookShow, searchBookShow , totalBooks ,setTotalBooks , CurrentReadBook , setCurrentReadBook,favoriteBooks,setFavoriteBooks}}>
                 <BrowserRouter>
-                    <Header />
+                    <Header />    
                     <Routes>
-                        {/* <Route path='/' element={<Home/>}></Route> */}
+                        <Route path='/' element={<Dashborad/>}></Route>
                         <Route path='/about' element={<About />}></Route>
                         <Route path='/product' element={<Product />}></Route>
                         {/* <Route path='/product/productrow' element={<ProductRow />}></Route> */}
