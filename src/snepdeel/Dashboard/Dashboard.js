@@ -11,7 +11,12 @@ function Dashboard() {
       console.log(result.data)
       setDashboard(result.data)
     })
+    // .then((result)=>{
+    //   console.log(result.data)
+    //   setDashboard(result.data)
+    // })
     
+
 
   },[])
 
