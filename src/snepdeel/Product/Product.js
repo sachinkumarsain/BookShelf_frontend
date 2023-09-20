@@ -53,9 +53,9 @@ function Product() {
         </div>
         <div className='right'>
           <ProductRow endpoint="mostpopular" heading=" Most Popular" />
-          <ProductRow endpoint="poetry" heading="Poetry Books" />
+          {/* <ProductRow endpoint="poetry" heading="Poetry Books" />
           <ProductRow endpoint="fantasy" heading="Fantasy Books" />
-          <ProductRow endpoint="romance" heading="Romance Books" />
+          <ProductRow endpoint="romance" heading="Romance Books" /> */}
 
         </div>
       </div>
