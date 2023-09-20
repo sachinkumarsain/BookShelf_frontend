@@ -16,10 +16,12 @@ function Header() {
 
   const [inputValue, setInputValue] = useState("")
   const nevigate = useNavigate()
+
   const session = localStorage.getItem("session")
 
   function handleSubmit(e) {
     e.preventDefault()
+    // console.log(inputValue)
     axios.post("http://localhost:8080/searchbooks", { inputValue, session })
       .then((result) => {
         setSearchBooksData(result.data)

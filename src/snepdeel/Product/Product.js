@@ -10,7 +10,7 @@ import { searchContext } from '../First'
 
 function Product() {
 
-  const { setTotalBooks} = useContext(searchContext)
+  const { setTotalBooks , setFilterBooks} = useContext(searchContext)
  
   useEffect(() => {
     axios.get("http://localhost:8080/product")
@@ -20,6 +20,15 @@ function Product() {
       })
   }, [])
 
+  function handleClick(value){
+    console.log(value)   
+    let listValue = value
+      axios.post(`http://localhost:8080/listdata ` ,{listValue})
+      .then((result)=>{
+        console.log(result.data)
+        setFilterBooks(result.data)
+      })
+  }
 
 
   return (
@@ -28,19 +37,18 @@ function Product() {
         <div className='left'>
           <h2>LIBRARY</h2>
           <ul>
-            <li><Link to="">Most popular</Link></li>
-            <li><Link to="">Fiction</Link></li>
-            <li><Link to="">Poetry</Link></li>
-            <li><Link to="">fantasy</Link></li>
-            <li><Link to="">Romance</Link></li>
-            <li><Link to="">Flower</Link></li>
-            <li><Link to="">Horror</Link></li>
-            <li><Link to="">Cookbooks</Link></li>
-            <li><Link to="">Essays</Link></li>
-            <li><Link to="">Memoir</Link></li>
-            <li><Link to="">Self-Help</Link></li>
-            <li><Link to="">Short Stories</Link></li>
-
+            <li onClick={() => handleClick("mostpopular")}><Link to="">Most popular</Link></li>
+            <li onClick={() => handleClick("")}><Link to="">Fiction</Link></li>
+            <li onClick={() => handleClick("poetry")}><Link to="">Poetry</Link></li>
+            <li onClick={() => handleClick("fantasy")}><Link to="">fantasy</Link></li>
+            <li onClick={() => handleClick("romance")}><Link to="">Romance</Link></li>
+            <li onClick={() => handleClick("")}><Link to="">Flower</Link></li>
+            <li onClick={() => handleClick("")}><Link to="">Horror</Link></li>
+            <li onClick={() => handleClick("")}><Link to="">Cookbooks</Link></li>
+            <li onClick={() => handleClick("")}><Link to="">Essays</Link></li>
+            <li onClick={() => handleClick("")}><Link to="">Memoir</Link></li>
+            <li onClick={() => handleClick("")}><Link to="">Self-Help</Link></li>
+            <li onClick={() => handleClick("")}><Link to="">Short Stories</Link></li>
           </ul>
         </div>
         <div className='right'>

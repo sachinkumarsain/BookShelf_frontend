@@ -28,10 +28,11 @@ function First() {
     const[CurrentReadBook , setCurrentReadBook] = useState([])
     const [mostPopularBook, setMostPopularBook] = useState([])
     const [favoriteBooks , setFavoriteBooks]=useState([])
+    const[filterBooks , setFilterBooks] =useState([])
 
     return (
         <>
-            <searchContext.Provider value={{mostPopularBook,setMostPopularBook ,setSearchBooksData, searchBooksdata, setSearchBookShow, searchBookShow , totalBooks ,setTotalBooks , CurrentReadBook , setCurrentReadBook,favoriteBooks,setFavoriteBooks}}>
+            <searchContext.Provider value={{mostPopularBook,setMostPopularBook ,setSearchBooksData, searchBooksdata, setSearchBookShow, searchBookShow , totalBooks ,setTotalBooks , CurrentReadBook , setCurrentReadBook,favoriteBooks,setFavoriteBooks , setFilterBooks ,filterBooks}}>
                 <BrowserRouter>
                     <Header />    
                     <Routes>

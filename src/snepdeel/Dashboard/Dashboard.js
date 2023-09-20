@@ -6,7 +6,7 @@ function Dashboard() {
   const [dashboard , setDashboard]=useState({})
 
   useEffect(()=>{
-    axios.get (`http://localhost:8080+${session}`)
+    axios.get ("http://localhost:8080/dasboard",{session})
     .then((result)=>{
       console.log(result.data)
       setDashboard(result.data)
@@ -16,8 +16,6 @@ function Dashboard() {
     //   setDashboard(result.data)
     // })
     
-
-
   },[])
 
   return (

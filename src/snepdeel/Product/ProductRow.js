@@ -20,19 +20,19 @@ import { useNavigate } from 'react-router-dom';
 
 function ProductRow(props) {
 
-    const { totalBooks, setSearchBookShow} = useContext(searchContext)
+    const { totalBooks, setSearchBookShow , filterBooks} = useContext(searchContext)
 
-    const [books, setBooks] = useState([])
+    // const [books, setBooks] = useState([])
     const nevigate = useNavigate()
     const session = localStorage.getItem("session")
     
-    useEffect(() => {
-        const tnp = totalBooks.filter((mpb) => mpb.bookType === props.endpoint);
-        // console.log(tnp)
-        setBooks(tnp)
-        //  let api =  AIzaSyC1D8WIkBINjc6GWc63579oia1BGoNYFcc
+    // useEffect(() => {
+    //     const tnp = totalBooks.filter((mpb) => mpb.bookType === props.endpoint);
+    //     // console.log(tnp)
+    //     setBooks(tnp)
+    //     //  let api =  AIzaSyC1D8WIkBINjc6GWc63579oia1BGoNYFcc
 
-    }, [totalBooks])
+    // }, [totalBooks])
     // console.log(books)
     // console.log(totalBooks)
 
@@ -64,7 +64,7 @@ function ProductRow(props) {
             <div className='book'>
 
                 {
-                    books.map((data, index) => {
+                    filterBooks.map((data, index) => {
                         return <Link className='singleBookAnchor' to="">
                             <div className='singleBook'>
                                  <img src={data.image} alt='images'></img>

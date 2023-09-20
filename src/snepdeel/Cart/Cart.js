@@ -1,10 +1,15 @@
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
 
+
 // function Cart() {
 //   const [books, setBooks] = useState([]);
 //   const [bookData, setBooksData] = useState([ ]);
-//   const [aaya, setAaya] = useState([]);6  v1/volumes?q=flower&maxResults=40&orderBy=newest&key=${api_key}`)
+//   const [aaya, setAaya] = useState([]);
+
+
+// useEffect(()=>{
+// axios.get(`https://www.googleapis.com/books/v1/volumes?q=mostpopular&maxResults=40&orderBy=newest&key=${API_KEY}`)
 //       .then((result) => {
 //         setBooks(result.data.items.slice(0,10))});
 //         // console.log(result.data.items)
