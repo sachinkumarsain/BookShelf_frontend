@@ -22,7 +22,7 @@ function Header() {
   function handleSubmit(e) {
     e.preventDefault()
     // console.log(inputValue)
-    axios.post("http://localhost:8080/searchbooks", { inputValue, session })
+    axios.post('http://localhost:8080/searchbooks', { inputValue})
       .then((result) => {
         setSearchBooksData(result.data)
         console.log("aa gya searchbooksdata");

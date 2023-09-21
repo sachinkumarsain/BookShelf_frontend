@@ -30,9 +30,11 @@ function First() {
     const [favoriteBooks , setFavoriteBooks]=useState([])
     const[filterBooks , setFilterBooks] =useState([])
 
+    let session = localStorage.getItem("session")
+
     return (
         <>
-            <searchContext.Provider value={{mostPopularBook,setMostPopularBook ,setSearchBooksData, searchBooksdata, setSearchBookShow, searchBookShow , totalBooks ,setTotalBooks , CurrentReadBook , setCurrentReadBook,favoriteBooks,setFavoriteBooks , setFilterBooks ,filterBooks}}>
+            <searchContext.Provider value={{ session,mostPopularBook,setMostPopularBook ,setSearchBooksData, searchBooksdata, setSearchBookShow, searchBookShow , totalBooks ,setTotalBooks , CurrentReadBook , setCurrentReadBook,favoriteBooks,setFavoriteBooks , setFilterBooks ,filterBooks}}>
                 <BrowserRouter>
                     <Header />    
                     <Routes>
@@ -50,7 +52,7 @@ function First() {
                         <Route path='/singleshowbook' element={<SingleShowBook />}></Route>
                     </Routes>
                     <Footer />
-                </BrowserRouter>
+                </BrowserRouter>      
             </searchContext.Provider>
         </>
     )
