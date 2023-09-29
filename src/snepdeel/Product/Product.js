@@ -13,9 +13,10 @@ function Product() {
   const { setTotalBooks , setFilterBooks} = useContext(searchContext)
  
   useEffect(() => {
-    axios.get("http://localhost:8080/product")
+    axios.get(`http://localhost:8080/product`)
       .then((result) => {
-        // console.log(result.data)
+        console.log(result.data)
+        // console.log(result)
         setTotalBooks(result.data)
       })
   }, [])
@@ -25,8 +26,8 @@ function Product() {
     let listValue = value
       axios.post(`http://localhost:8080/listdata ` ,{listValue})
       .then((result)=>{
-        console.log(result.data)
-        setFilterBooks(result.data)
+        console.log(result.data)    
+        setTotalBooks(result.data)
       })
   }
 

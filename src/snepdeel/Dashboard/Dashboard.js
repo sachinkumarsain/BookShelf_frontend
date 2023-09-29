@@ -24,11 +24,10 @@ function Dashboard() {
 
   //.............likeBooks.....................//
   
-  function likeBooks(e){
-
-    console.log("clickLiked")
+  function likeBooks(){
+    // console.log("clickLiked")
     axios.get(`${serverUrl}/likebooks/${session}`)
-    .then((result)=>{
+    .then((result)=>{   
       console.log(result.data)
     })
 
@@ -41,7 +40,7 @@ function Dashboard() {
           <h1>{dashboard.username}</h1>
          <ul>
          <li >Current Books</li>
-          <li onClick={likeBooks()}>Like Books</li> 
+          <li onClick={likeBooks}>Like Books</li> 
           <li>comment Books</li>
           <li>searchBook</li>
          </ul>

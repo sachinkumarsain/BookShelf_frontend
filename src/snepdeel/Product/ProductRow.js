@@ -17,10 +17,11 @@ import "./Product.css"
 import { useContext } from 'react';
 import { searchContext } from '../First';
 import { useNavigate } from 'react-router-dom';
+import serverUrl from '../Url';
 
 function ProductRow(props) {
 
-    const { totalBooks, setSearchBookShow , filterBooks} = useContext(searchContext)
+    const { totalBooks, setSearchBookShow } = useContext(searchContext)
 
     // const [books, setBooks] = useState([])
     const nevigate = useNavigate()
@@ -32,9 +33,10 @@ function ProductRow(props) {
     //     setBooks(tnp)
     //     //  let api =  AIzaSyC1D8WIkBINjc6GWc63579oia1BGoNYFcc
 
-    // }, [totalBooks])
+    // }, [totalBooks])  
+
     // console.log(books)
-    // console.log(totalBooks)
+    console.log(totalBooks)
 
 
     function handleShowMore(e, data) {
@@ -46,11 +48,8 @@ function ProductRow(props) {
 
     function handleLike(e, data) {
         e.preventDefault() 
-
-        console.log(session)
         let likeBookId = data;
-        console.log(likeBookId)
-        axios.patch("http://localhost:8080/product",{likeBookId, session})
+        axios.patch(`${serverUrl}/product/${session}`,{likeBookId})
         .then((result)=>{
             console.log(result.data)
         })
@@ -60,11 +59,11 @@ function ProductRow(props) {
 
     return (
         <div className='bookRow'>
-            <h1>{props.heading}</h1>
+            {/* <h1>{props.heading}</h1> */}
             <div className='book'>
 
                 {
-                    filterBooks.map((data, index) => {
+                    totalBooks.map((data, index) => {
                         return <Link className='singleBookAnchor' to="">
                             <div className='singleBook'>
                                  <img src={data.image} alt='images'></img>
