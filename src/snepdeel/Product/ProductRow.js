@@ -27,15 +27,29 @@ function ProductRow(props) {
     const session = localStorage.getItem("session")
     
    
-    console.log(totalBooks)
+    // console.log(totalBooks)
+
+//............................current read book.................//
 
 
     function handleShowMore(e, data) {
         e.preventDefault()
+        let currentBookId = data._id;
+        
+        axios.patch(`${serverUrl}/currentread/${session}`,{currentBookId})
+        .then((result)=>{
+            console.log(result.data)
+        
+        })
         setSearchBookShow(data)
         nevigate("/SingleShowBook")    
+       
     }
 
+
+ //.........................Liked Books .....................//
+ 
+ 
     function handleLike(e, data) {
         e.preventDefault() 
         let likeBookId = data;

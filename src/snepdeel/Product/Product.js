@@ -6,13 +6,18 @@ import ProductRow from './ProductRow'
 import axios from 'axios'
 import { useContext } from 'react'
 import { searchContext } from '../First'
+import serverUrl from '../Url'
+
 // import { searchContext } from '../First'
 
 function Product() {
 
   const[allBooks ,setAllBooks]=useState(false) 
 
-  const {totalBooks, setTotalBooks, setFilterBooks } = useContext(searchContext)
+  const {totalBooks,session, setTotalBooks, setFilterBooks } = useContext(searchContext)
+
+
+//.........................total books........................//
 
   useEffect( () => {
      axios.get(`http://localhost:8080/product`)
@@ -24,7 +29,8 @@ function Product() {
   }, [])
 
 
- 
+ //.................................Books List Click ..............//
+
   function handleClick(value) {
     console.log(value)
     setAllBooks(true)
@@ -36,6 +42,45 @@ function Product() {
       })
   }
 
+  //........................Like Books.........................//
+
+  function likeBooks() {
+    // console.log("clickLiked")
+    axios.get(`${serverUrl}/likebooks/${session}`)
+      .then((result) => {
+        setFilterBooks(result.data)
+      })
+
+  }
+
+  //.........................Search Books.........................//
+function searchBooks(){
+
+  axios.get(`${serverUrl}/searchbooks/${session}`)
+  .then((result) => {
+    setFilterBooks(result.data)
+  })
+}
+
+  //.........................Current Read Books.......................//
+
+function currentReadBooks (){
+  axios.get(`${serverUrl}/currentreadbooks/${session}`)
+  .then((result) => {
+    setFilterBooks(result.data)
+  })
+}
+
+  //.........................Comment Books....................//
+  function commentBooks(){
+    axios.get(`${serverUrl}/commentBooks/${session}`)
+    .then((result) => {
+      setFilterBooks(result.data)
+    })
+  }
+
+  //.........................Rating Books.........................//
+
 
   return (
     <>
@@ -44,11 +89,11 @@ function Product() {
           <h2>LIBRARY</h2>
           <h3>History</h3>
           <ul>
-            <li onClick={() => handleClick("allbooks")}><Link to="">Favorite</Link></li>
-            <li onClick={() => handleClick("allbooks")}><Link to="">Commented</Link></li>
-            <li onClick={() => handleClick("allbooks")}><Link to="">Current Read</Link></li>
+            <li onClick={likeBooks}><Link to="">Favorite</Link></li>
+            <li onClick={commentBooks}><Link to="">Commented</Link></li>
+            <li onClick={currentReadBooks}><Link to="">Current Read</Link></li>
             <li onClick={() => handleClick("allbooks")}><Link to="">Rating</Link></li>
-            <li onClick={() => handleClick("allbooks")}><Link to="">Search</Link></li>
+            <li onClick={searchBooks}><Link to="">Search</Link></li>
           </ul>
           <h3>Library</h3>
           <ul>
