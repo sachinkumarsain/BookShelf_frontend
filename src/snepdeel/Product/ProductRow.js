@@ -21,29 +21,19 @@ import serverUrl from '../Url';
 
 function ProductRow(props) {
 
-    const { totalBooks, setSearchBookShow } = useContext(searchContext)
-
-    // const [books, setBooks] = useState([])
+    const { totalBooks, setSearchBookShow,filterBooks  } = useContext(searchContext)
+ 
     const nevigate = useNavigate()
     const session = localStorage.getItem("session")
     
-    // useEffect(() => {
-    //     const tnp = totalBooks.filter((mpb) => mpb.bookType === props.endpoint);
-    //     // console.log(tnp)
-    //     setBooks(tnp)
-    //     //  let api =  AIzaSyC1D8WIkBINjc6GWc63579oia1BGoNYFcc
-
-    // }, [totalBooks])  
-
-    // console.log(books)
+   
     console.log(totalBooks)
 
 
     function handleShowMore(e, data) {
         e.preventDefault()
         setSearchBookShow(data)
-        nevigate("/SingleShowBook")  
-        // console.log(data)   
+        nevigate("/SingleShowBook")    
     }
 
     function handleLike(e, data) {
@@ -59,11 +49,11 @@ function ProductRow(props) {
 
     return (
         <div className='bookRow'>
-            {/* <h1>{props.heading}</h1> */}
+         
             <div className='book'>
 
                 {
-                    totalBooks.map((data, index) => {
+                    filterBooks.map((data, index) => {
                         return <Link className='singleBookAnchor' to="">
                             <div className='singleBook'>
                                  <img src={data.image} alt='images'></img>
@@ -75,24 +65,14 @@ function ProductRow(props) {
 
                                 </div>
 
-                                {/* {
-                                    (likeConfimation(data.id))
-                                        ?
-                                        (<Link onClick={(e) => handleLike(e, data)} className='likeIcon' to="">
-                                            <FavoriteIcon />
-                                        </Link>)
-                                        :
-                                        (<Link onClick={(e) => handleLike(e, data)} className='likeIcon' to="">
-                                            <FavoriteBorderIcon />
-                                        </Link>)
-                                } */}
+                               
                                 <Link onClick={(e) => handleLike(e, data._id)} className='likeIcon' to="">
                                             <FavoriteBorderIcon />
                                         </Link>
 
 
 
-                                {/* <h3><span><RemoveRedEyeOutlinedIcon /></span><span><FavoriteBorderIcon /></span></h3> */}
+                               
                             </div>
 
                         </Link>
