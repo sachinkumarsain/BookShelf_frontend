@@ -75,7 +75,8 @@ function currentReadBooks (){
   function commentBooks(){
     axios.get(`${serverUrl}/commentbooks/${session}`)
     .then((result) => {
-      setFilterBooks(result.data)
+      setFilterBooks(result.data.collectdata)
+      console.log(result.data.collectdata)
     })
   }
 
