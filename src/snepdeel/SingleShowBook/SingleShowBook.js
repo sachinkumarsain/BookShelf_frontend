@@ -32,7 +32,7 @@ function SingleShowBook() {
         let session = localStorage.getItem("session")
         console.log(commentBook,session,inputValue)
        
-        axios.patch(`http://localhost:8080/singleshowbook${session}`,{ commentBook,  inputValue })
+        axios.patch(`http://localhost:8080/commentbook/${session}`,{ commentBook,  inputValue })
         .then((result)=>{
             console.log(result.data)
         })

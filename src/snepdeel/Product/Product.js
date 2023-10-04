@@ -69,11 +69,11 @@ function currentReadBooks (){
   .then((result) => {
     setFilterBooks(result.data)
   })
-}
+}   
 
   //.........................Comment Books....................//
   function commentBooks(){
-    axios.get(`${serverUrl}/commentBooks/${session}`)
+    axios.get(`${serverUrl}/commentbooks/${session}`)
     .then((result) => {
       setFilterBooks(result.data)
     })
