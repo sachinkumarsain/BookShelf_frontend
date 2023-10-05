@@ -9,7 +9,8 @@ import { ToastContainer, toast } from "react-toastify";
 
 function SingleShowBook() {
     const { searchBookShow } = useContext(searchContext)
-    const[inputValue, setInputValue]=useState("")
+    const [inputValue, setInputValue] = useState("")
+    const [rating, setRating] = useState(0);
 
     // console.log(searchBookShow.image)
 
@@ -20,31 +21,52 @@ function SingleShowBook() {
         setShowFullDescription(!showFullDescription);
     };
 
-        // console.log(searchBookShow.description)
+    // console.log(searchBookShow.description)
     const description = (showFullDescription)
         ? searchBookShow.description
         : searchBookShow.description.slice(0, 300) + '...';
 
 
-    function handleCommentSubmit(e ,bookId){
+    function handleCommentSubmit(e, bookId) {
         e.preventDefault()
 
         let commentBook = bookId
         let session = localStorage.getItem("session")
-       
-        axios.patch(`http://localhost:8080/commentbook/${session}`,{ commentBook,  inputValue })
-        .then((result)=>{
-            console.log(result.data)
-            // toast.success(result.data)
-        })
+
+        axios.patch(`http://localhost:8080/commentbook/${session}`, { commentBook, inputValue })
+            .then((result) => {
+                console.log(result.data)
+                // toast.success(result.data)
+            })
+
+    }
+
+    //.......................rating book...................//
+
+    function handleRate() {
 
     }
     return (
         <div className='singleShowBook'>
             <div className='left'>
                 <img src={searchBookShow.image} alt='images'></img>
-                <form onSubmit={(e)=>{handleCommentSubmit(e,searchBookShow._id)}}>
-                    <input type='text' value={inputValue}onChange={(e)=>{setInputValue(e.target.value)}} placeholder='Write your review...'></input>
+                <div className="rating-section">
+                    <p>Rate this book:</p>
+                    <div className="stars">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                            <span
+                                key={star}
+                                className={`star ${rating >= star ? "active" : ""}`}
+                                onClick={() => handleRate(star)} >
+                                    <Link to=""> &#9733;</Link>
+                               
+                            </span>
+                        ))}
+                    </div>
+                    <p>{rating > 0 ? `Thank you for rating ${rating} stars!` : ""}</p>
+                </div>
+                <form onSubmit={(e) => { handleCommentSubmit(e, searchBookShow._id) }}>
+                    <textarea type='text' value={inputValue} onChange={(e) => { setInputValue(e.target.value) }} placeholder='Write your review...'></textarea>
                     <button type='submit'>Submit</button>
                 </form>
             </div>
@@ -53,7 +75,7 @@ function SingleShowBook() {
               autoClose={3000}
               theme="dark"
             /> */}
-            <div className='right'>  
+            <div className='right'>
                 <h1>{`${"Title : "} ${searchBookShow.title}`}</h1>
                 <h2 className='other1Content'>Author <span>&</span> BookType</h2>
                 <div className='other1'>
