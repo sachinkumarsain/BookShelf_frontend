@@ -16,7 +16,7 @@ import SearchBooks from './SearchBooks/SearchBooks'
 import { createContext } from 'react'
 import SingleShowBook from './SingleShowBook/SingleShowBook'
 import Favorite from './Favorite/Favorite'
-import Dashborad  from "./Dashboard/Dashboard"
+import Profile from './Admin/Profile/Profile'
 // import { Provider } from 'react'
 // import  Login  from './Form/Login/Login'
 export const searchContext = createContext({})
@@ -38,13 +38,13 @@ function First() {
                 <BrowserRouter>
                     <Header />    
                     <Routes>
-                        <Route path='/' element={<Dashborad/>}></Route>
-                        <Route path='/about' element={<About />}></Route>
+                        
+                        <Route path='/' element={<About />}></Route>
                         <Route path='/product' element={<Product />}></Route>
+                        <Route path='/admin/profile' element={<Profile />}></Route>
                         {/* <Route path='/product/productrow' element={<ProductRow />}></Route> */}
                         <Route path='/service' element={<Service />}></Route>
                         <Route path='/contact' element={<Contect />}></Route>
-                        {/* <Route path='/cart' element={<Cart />}></Route> */}
                         <Route path='favorite' element={<Favorite/>}></Route>
                         <Route path='/sign' element={<Login />}></Route>
                         <Route path='/register' element={<Registeruser />}></Route>

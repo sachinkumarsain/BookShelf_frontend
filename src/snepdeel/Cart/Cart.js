@@ -35,6 +35,7 @@
 
 //   useEffect(() => {
 //     // Add all upcoming items from 'bookData' to the 'aaya' state
+
 //     setAaya((aaya) => [...aaya, ...bookData]);
 //     // setAaya([])
 //   }, [bookData]);
@@ -75,8 +76,25 @@
 //           );
 //         })}
 //       </div>
-//     </div>
+//     </div>  
+
 //   );
 // }
 
 // export default Cart ;
+import React from 'react';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+function Cart(){
+  const notify = () => toast("Wow so easy!");
+
+  return (
+    <div>
+      <button onClick={notify}>Notify!</button>
+      <ToastContainer />
+    </div>
+  );
+}
+export default Cart

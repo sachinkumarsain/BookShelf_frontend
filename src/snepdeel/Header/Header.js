@@ -7,7 +7,11 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import axios from 'axios'
 import { searchContext } from '../First'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import CloseIcon from '@mui/icons-material/Close';
+import Profile from '../Admin/Profile/Profile';
 // import Favorite from '../Favorite/Favorite';
+import SearchIcon from '@mui/icons-material/Search';
 
 // import axios from 'axios'
 
@@ -16,10 +20,15 @@ function Header() {
 
   const [inputValue, setInputValue] = useState("")
   const nevigate = useNavigate()
+  const[admin , setAdmin]= useState(false)
 
   const session = localStorage.getItem("session")
 
-  function handleSubmit(e) {
+
+//................................Search books...................//
+
+
+  function handleSearch(e) {
     e.preventDefault()
     // console.log(inputValue)
     axios.post('http://localhost:8080/searchbooks', { inputValue})
@@ -31,6 +40,7 @@ function Header() {
       })
 
   }
+//...............................like Componant .....................//
 
   function likeHander() {
     let likeChanges = false;
@@ -40,12 +50,41 @@ function Header() {
     return likeChanges
   }
 
-  function handleLogout(e) {
-    e.preventDefault();
-   localStorage.setItem("session","")
-   nevigate("/sign")
+
+  //..........................Admin work.......................//
+
+  function adminPanelOpen(e){
+    e.preventDefault()
+    setAdmin(true)
+
   }
-  // console.log(favoriteBooks)
+
+  function adminPanelClose(e){
+    e.preventDefault()
+    setAdmin(false)
+  }
+
+  //................................Admin Profile work ..................//
+
+function profileOpen (e){
+  e.preventDefault()
+  setAdmin(false)
+  nevigate("/admin/profile")
+}
+
+
+
+
+//..........................Admin Logout...............................//
+
+function handleLogout(e) {
+  e.preventDefault();
+ localStorage.setItem("session","")
+ nevigate("/sign")
+}
+// console.log(favoriteBooks)
+
+//...........................................................//
 
 
   return (
@@ -54,12 +93,17 @@ function Header() {
         <div className='topHeader'>
           <h1>BookShelf</h1>
           <div className='searchButton'>
-            <form mathod="post" onSubmit={handleSubmit} >
+            {/* <form mathod="post" onSubmit={handleSearch} >
               <input autoFocus type='text' placeholder='Enter product name'
                 value={inputValue}
                 onChange={(e) => { setInputValue(e.target.value) }}
               ></input>
               <button type='submit'>Search</button>
+            </form> */}
+            <form>
+              <input placeholder='Enter text'></input>
+              
+
             </form>
           </div>
           <ul>
@@ -72,23 +116,20 @@ function Header() {
             }
             </li>
             <li>{
-              (localStorage.getItem("session")) ? <Link onClick={handleLogout} >Logout</Link> : <Link to="/sign" >Login</Link>
+              (localStorage.getItem("session")) ? <Link onClick={adminPanelOpen} ><AccountCircleIcon/></Link> : <Link to="/sign" >Login</Link>
             }
             </li>
           </ul>
         </div>
         <div className='bottomHeader'>
           <ul>
-            <li>
-              <Link to="/">Dashboard</Link>
-
-            </li>
+           
             <li>
               <Link to="/cart">Cart</Link>
 
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/">About</Link>
 
             </li>
             <li>
@@ -103,6 +144,14 @@ function Header() {
               <Link to="/service">Service</Link>
 
             </li>
+          </ul>
+        </div>
+        <div className='admin' style={{right:admin?"0":"-10%"}}>
+          <h2 onClick={adminPanelClose}><CloseIcon/></h2>
+          <ul>
+            <li><Link to="" onClick={profileOpen}>Profile</Link></li>
+            <li><Link to="">History</Link></li>
+            <li><Link onClick={handleLogout} to="">Logout</Link></li>
           </ul>
         </div>
       </header>

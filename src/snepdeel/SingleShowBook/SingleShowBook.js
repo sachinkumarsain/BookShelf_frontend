@@ -5,6 +5,7 @@ import "./ShowSingleBook.css"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 // import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from "react-toastify";
 
 function SingleShowBook() {
     const { searchBookShow } = useContext(searchContext)
@@ -30,11 +31,11 @@ function SingleShowBook() {
 
         let commentBook = bookId
         let session = localStorage.getItem("session")
-        console.log(commentBook,session,inputValue)
        
         axios.patch(`http://localhost:8080/commentbook/${session}`,{ commentBook,  inputValue })
         .then((result)=>{
             console.log(result.data)
+            // toast.success(result.data)
         })
 
     }
@@ -47,7 +48,12 @@ function SingleShowBook() {
                     <button type='submit'>Submit</button>
                 </form>
             </div>
-            <div className='right'>
+            {/* <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              theme="dark"
+            /> */}
+            <div className='right'>  
                 <h1>{`${"Title : "} ${searchBookShow.title}`}</h1>
                 <h2 className='other1Content'>Author <span>&</span> BookType</h2>
                 <div className='other1'>
