@@ -43,22 +43,24 @@ function SingleShowBook() {
 
     //.......................rating book...................//
 
-    function handleRate() {
-
-    }
+    function handleRate(stars) {
+        setRating(stars);
+        // setClickRating(true)
+      };
+    
     return (
         <div className='singleShowBook'>
             <div className='left'>
                 <img src={searchBookShow.image} alt='images'></img>
                 <div className="rating-section">
-                    <p>Rate this book:</p>
+                    {/* <p>Rate this book:</p> */}
                     <div className="stars">
                         {[1, 2, 3, 4, 5].map((star) => (
                             <span
                                 key={star}
                                 className={`star ${rating >= star ? "active" : ""}`}
                                 onClick={() => handleRate(star)} >
-                                    <Link to=""> &#9733;</Link>
+                                     &#9733;
                                
                             </span>
                         ))}

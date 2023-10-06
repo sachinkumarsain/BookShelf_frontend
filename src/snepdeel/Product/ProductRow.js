@@ -34,13 +34,13 @@ function ProductRow(props) {
 
     function handleShowMore(e, data) {
         e.preventDefault()
-        let currentBookId = data._id;
+        // let currentBookId = data._id;
         
-        axios.patch(`${serverUrl}/currentread/${session}`,{currentBookId})
-        .then((result)=>{
-            console.log(result.data)
+        // axios.patch(`${serverUrl}/currentread/${session}`,{currentBookId})
+        // .then((result)=>{
+        //     console.log(result.data)
         
-        })
+        // })
         setSearchBookShow(data)
         nevigate("/SingleShowBook")    
        
