@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState ,useEffect} from 'react'
 // import { useNavigate } from 'react-router-dom'
 import { searchContext } from '../First'
 import "./ShowSingleBook.css"
@@ -11,6 +11,7 @@ function SingleShowBook() {
     const { searchBookShow } = useContext(searchContext)
     const [inputValue, setInputValue] = useState("")
     const [rating, setRating] = useState(0);
+    const [clickRating, setClickRating] = useState(false);
 
     // console.log(searchBookShow.image)
 
@@ -45,9 +46,32 @@ function SingleShowBook() {
 
     function handleRate(stars) {
         setRating(stars);
-        // setClickRating(true)
+        setClickRating(true)
       };
     
+
+      useEffect(() => {
+        let ratingBook = searchBookShow._id;
+        if (clickRating) {
+            console.log(rating)
+          axios.patch(`${porturl}/rating/${session}`, { ratingBook, rating })
+            .then((result) => {
+              if (result.data.status === 200) {
+                toast.success(result.data.message)
+              } else {
+                toast.success(result.data.message)
+              }
+            }).catch((err) => {
+              console.log(err)
+            })
+        }
+    
+        
+      }, [rating])
+
+
+
+
     return (
         <div className='singleShowBook'>
             <div className='left'>

@@ -93,18 +93,14 @@ function handleLogout(e) {
         <div className='topHeader'>
           <h1>BookShelf</h1>
           <div className='searchButton'>
-            {/* <form mathod="post" onSubmit={handleSearch} >
+            <form mathod="post" onSubmit={handleSearch} >
               <input autoFocus type='text' placeholder='Enter product name'
                 value={inputValue}
                 onChange={(e) => { setInputValue(e.target.value) }}
               ></input>
               <button type='submit'>Search</button>
-            </form> */}
-            <form>
-              <input placeholder='Enter text'></input>
-              
-
             </form>
+           
           </div>
           <ul>
             <li>{

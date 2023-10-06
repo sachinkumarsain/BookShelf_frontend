@@ -51,7 +51,7 @@
 .bottomHeader ul li a,
 .topHeader ul li a {
     text-decoration: none;
-    font-size: 22px;
+    font-size: 20px;
     color: #AF6B58;
     display: flex;
     align-items: center;
@@ -89,11 +89,11 @@
 
 
 
-/* .topHeader .searchButton input {
+.topHeader .searchButton input {
     padding: 2px 10px;
     width: 200px;
     height: 30px;
-    font-size: 18px;
+    font-size: 17px;
     border: none;
     color: #824e3f;
     background-color: #ede7e2;
@@ -105,7 +105,7 @@
 .topHeader .searchButton button {
     padding: 2px 10px;
     width: 80px;
-    font-size: 18px;
+    font-size: 17px;
     background-color: #AF6B58;
     height: 30px;
     color: white;
@@ -113,7 +113,7 @@
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 
-} */
+}
 
 .admin {
     position: absolute;
