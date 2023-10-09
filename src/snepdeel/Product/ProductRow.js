@@ -27,7 +27,7 @@ function ProductRow(props) {
     const session = localStorage.getItem("session")
     
    
-    // console.log(totalBooks)
+    console.log(filterBooks)
 
 //............................current read book.................//
 

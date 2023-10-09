@@ -22,7 +22,7 @@ function Product() {
   useEffect( () => {
      axios.get(`http://localhost:8080/product`)
       .then((result) => {
-        console.log(result.data)
+        // console.log(result.data)
         setTotalBooks(result.data)
       })
     
@@ -82,6 +82,16 @@ function currentReadBooks (){
 
   //.........................Rating Books.........................//
 
+  function ratingBooks(){
+    axios.get(`${serverUrl}/ratingbooks/${session}`)
+    .then((result) => {
+      setFilterBooks(result.data.collectData)
+      console.log(result.data.collectdata)
+    })
+  }
+  
+
+
 
   return (
     <>
@@ -93,7 +103,7 @@ function currentReadBooks (){
             <li onClick={likeBooks}><Link to="">Favorite</Link></li>
             <li onClick={commentBooks}><Link to="">Commented</Link></li>
             <li onClick={currentReadBooks}><Link to="">Current Read</Link></li>
-            <li onClick={() => handleClick("allbooks")}><Link to="">Rating</Link></li>
+            <li onClick={ratingBooks}><Link to="">Rating</Link></li>
             <li onClick={searchBooks}><Link to="">Search</Link></li>
           </ul>
           <h3>Library</h3>
