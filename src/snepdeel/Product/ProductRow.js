@@ -74,6 +74,9 @@ function ProductRow(props) {
                         return <Link className='singleBookAnchor' to="">
                             <div className='singleBook'>
                                  <img src={data.image} alt='images'></img>
+                                 <h2>
+                                    
+                                 </h2>
 
                                 <div className='openHover'>
                                     <h2>{data.title.length > 20 ? data.title.slice(0, 20) + "..." : data.title}</h2>
