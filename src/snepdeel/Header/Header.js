@@ -1,28 +1,37 @@
+//................import tools................//
+
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import "./Header.css"
-// import logo from "../../juCUFrK (1).png"
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+
+//.........import icons .....................//
+
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import axios from 'axios'
-import { searchContext } from '../First'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CloseIcon from '@mui/icons-material/Close';
-import Profile from '../Admin/Profile/Profile';
+import MenuIcon from '@mui/icons-material/Menu';
+// import CloseIcon from '@mui/icons-material/Close';
 // import Favorite from '../Favorite/Favorite';
-import SearchIcon from '@mui/icons-material/Search';
+// import SearchIcon from '@mui/icons-material/Search';
 
-// import axios from 'axios'
+//...............import file.............//
+import "./Header.css"
+import { searchContext } from '../First'
+import Profile from '../Admin/Profile/Profile';
+
 
 function Header() {
-  const { setSearchBooksData, favoriteBooks } = useContext(searchContext)
 
+  //..............useSatate , useContext , nevigate ..................//
+
+  const { setSearchBooksData, favoriteBooks , session} = useContext(searchContext)
   const [inputValue, setInputValue] = useState("")
   const nevigate = useNavigate()
   const[admin , setAdmin]= useState(false)
+  const[menu , setMenu] = useState(false)
 
-  const session = localStorage.getItem("session")
 
 
 //................................Search books...................//
@@ -84,12 +93,29 @@ function handleLogout(e) {
 }
 // console.log(favoriteBooks)
 
-//...........................................................//
+//...........................Menu list ...........................//
+
+
+
+function handleMenu (e){
+  e.preventDefault()
+  setMenu(true)
+
+}
+function handleClose(e){
+  e.preventDefault()
+  setMenu(false)
+}
+
+//...............................................//
 
 
   return (
     <>
       <header>
+
+        {/* //...............topHeader....................// */}
+
         <div className='topHeader'>
           <h1>BookShelf</h1>
           <div className='searchButton'>
@@ -102,7 +128,14 @@ function handleLogout(e) {
             </form>
            
           </div>
-          <ul>
+          <div className='headerAnchor'>
+            <h2>{
+              (menu)
+              ? <Link onClick={handleClose} to=""><CloseIcon/></Link>
+              : <Link onClick={handleMenu} to=""><MenuIcon/></Link>
+              }
+              </h2>
+            <ul>
             <li>{
               likeHander()
                 ?
@@ -116,7 +149,11 @@ function handleLogout(e) {
             }
             </li>
           </ul>
+          </div>
+         
         </div>
+      {/* //.................bottomHeader...................// */}
+
         <div className='bottomHeader'>
           <ul>
            

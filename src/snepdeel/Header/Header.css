@@ -49,7 +49,7 @@
 }
 
 .bottomHeader ul li a,
-.topHeader ul li a {
+.topHeader ul li a ,.headerAnchor h2 a {
     text-decoration: none;
     font-size: 20px;
     color: #AF6B58;
@@ -60,10 +60,16 @@
     padding: 10px 30px;
 }
 
-.topHeader ul li a .css-i4bv87-MuiSvgIcon-root {
+.topHeader ul li a .css-i4bv87-MuiSvgIcon-root ,.headerAnchor h2 a .css-i4bv87-MuiSvgIcon-root{
     font-size: 30px;
 
 }
+
+
+.headerAnchor h2 a{
+    display: none;
+}
+
 
 .topHeader ul li .first {
     padding: 6.5px 30px;
@@ -83,7 +89,7 @@
 
 .bottomHeader ul li a:hover {
     background-color: #906357;
-    /* color: white; */
+    color: white;
 }
 
 
@@ -179,7 +185,8 @@
 
     .bottomHeader ul {
         flex-direction: column;
-        align-items: 40%;
+        /* align-items: 40%; */
+    align-items: center;
     }
 
 
