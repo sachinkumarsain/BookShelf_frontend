@@ -16,7 +16,7 @@ function LoginForm() {
     .then((result)=>{
       if(result.status===200){
         localStorage.setItem("session", result.data)
-        console.log(" maja aa gya")
+        // console.log(" maja aa gya")
         console.log(result.data)
          navigate("/home")
          
